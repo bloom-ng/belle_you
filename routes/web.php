@@ -35,8 +35,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/product{$id}', function ($id) {
-    return 'product '.$id;
+Route::get('/product', function () {
+    return view("product");
 });
 
 Route::middleware(['auth:sanctum', 'verified'])
