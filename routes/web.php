@@ -32,7 +32,11 @@ use App\Http\Controllers\StoreSettingController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/product{$id}', function ($id) {
+    return 'product '.$id;
 });
 
 Route::middleware(['auth:sanctum', 'verified'])
