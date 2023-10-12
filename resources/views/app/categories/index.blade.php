@@ -55,12 +55,6 @@
                                 <th class="px-4 py-3 text-right">
                                     @lang('crud.categories.inputs.parent_id')
                                 </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.categories.inputs.position')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.categories.inputs.product_id')
-                                </th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -72,12 +66,6 @@
                                 </td>
                                 <td class="px-4 py-3 text-right">
                                     {{ $category->parent_id ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $category->position ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $category->product_id ?? '-' }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"
@@ -144,7 +132,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5">
+                                <td colspan="3">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -152,7 +140,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="5">
+                                <td colspan="3">
                                     <div class="mt-10 px-4">
                                         {!! $categories->render() !!}
                                     </div>

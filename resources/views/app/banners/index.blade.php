@@ -50,13 +50,13 @@
                         <thead class="text-gray-700">
                             <tr>
                                 <th class="px-4 py-3 text-left">
+                                    @lang('crud.banners.inputs.image')
+                                </th>
+                                <th class="px-4 py-3 text-left">
                                     @lang('crud.banners.inputs.name')
                                 </th>
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.banners.inputs.position')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.banners.inputs.image')
                                 </th>
                                 <th></th>
                             </tr>
@@ -65,15 +65,15 @@
                             @forelse($banners as $banner)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
+                                    <x-partials.thumbnail
+                                        src="{{ $banner->image ? \Storage::url($banner->image) : '' }}"
+                                    />
+                                </td>
+                                <td class="px-4 py-3 text-left">
                                     {{ $banner->name ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $banner->position ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    <x-partials.thumbnail
-                                        src="{{ $banner->image ? \Storage::url($banner->image) : '' }}"
-                                    />
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"

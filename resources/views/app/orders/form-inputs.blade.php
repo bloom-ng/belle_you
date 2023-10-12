@@ -2,13 +2,14 @@
 
 <div class="flex flex-wrap">
     <x-inputs.group class="w-full">
-        <x-inputs.select name="user_id" label="User" required>
-            @php $selected = old('user_id', ($editing ? $order->user_id : '')) @endphp
-            <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the User</option>
-            @foreach($users as $value => $label)
-            <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
-            @endforeach
-        </x-inputs.select>
+        <x-inputs.text
+            name="user_id"
+            label="User Id"
+            :value="old('user_id', ($editing ? $order->user_id : ''))"
+            maxlength="255"
+            placeholder="User Id"
+            required
+        ></x-inputs.text>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
@@ -35,11 +36,11 @@
 
     <x-inputs.group class="w-full">
         <x-inputs.text
-            name="transacton_id"
-            label="Transacton Id"
-            :value="old('transacton_id', ($editing ? $order->transacton_id : ''))"
+            name="transaction_id"
+            label="Transaction Id"
+            :value="old('transaction_id', ($editing ? $order->transaction_id : ''))"
             maxlength="255"
-            placeholder="Transacton Id"
+            placeholder="Transaction Id"
             required
         ></x-inputs.text>
     </x-inputs.group>
@@ -67,17 +68,6 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="city"
-            label="City"
-            :value="old('city', ($editing ? $order->city : ''))"
-            maxlength="255"
-            placeholder="City"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
         <x-inputs.number
             name="discount"
             label="Discount"
@@ -90,14 +80,12 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="payment_status"
-            label="Payment Status"
-            :value="old('payment_status', ($editing ? $order->payment_status : ''))"
-            maxlength="255"
-            placeholder="Payment Status"
-            required
-        ></x-inputs.text>
+        <x-inputs.select name="payments_status" label="Payments Status">
+            @php $selected = old('payments_status', ($editing ? $order->payments_status : '')) @endphp
+            <option value="successful" {{ $selected == 'successful' ? 'selected' : '' }} >Successful</option>
+            <option value="pending" {{ $selected == 'pending' ? 'selected' : '' }} >Pending</option>
+            <option value="failed" {{ $selected == 'failed' ? 'selected' : '' }} >Failed</option>
+        </x-inputs.select>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">

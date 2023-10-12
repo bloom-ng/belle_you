@@ -18,7 +18,7 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Cart::class);
+        // $this->authorize('view-any', Cart::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +35,7 @@ class CartController extends Controller
      */
     public function store(CartStoreRequest $request)
     {
-        $this->authorize('create', Cart::class);
+        // $this->authorize('create', Cart::class);
 
         $validated = $request->validated();
 
@@ -51,7 +51,7 @@ class CartController extends Controller
      */
     public function show(Request $request, Cart $cart)
     {
-        $this->authorize('view', $cart);
+        // $this->authorize('view', $cart);
 
         return new CartResource($cart);
     }
@@ -63,7 +63,7 @@ class CartController extends Controller
      */
     public function update(CartUpdateRequest $request, Cart $cart)
     {
-        $this->authorize('update', $cart);
+        // $this->authorize('update', $cart);
 
         $validated = $request->validated();
 
@@ -79,7 +79,7 @@ class CartController extends Controller
      */
     public function destroy(Request $request, Cart $cart)
     {
-        $this->authorize('delete', $cart);
+        // $this->authorize('delete', $cart);
 
         $cart->delete();
 

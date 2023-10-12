@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Product::class);
+        // $this->authorize('view-any', Product::class);
 
         $search = $request->get('search', '');
 
@@ -36,7 +36,7 @@ class ProductController extends Controller
      */
     public function store(ProductStoreRequest $request)
     {
-        $this->authorize('create', Product::class);
+        // $this->authorize('create', Product::class);
 
         $validated = $request->validated();
         if ($request->hasFile('image')) {
@@ -55,7 +55,7 @@ class ProductController extends Controller
      */
     public function show(Request $request, Product $product)
     {
-        $this->authorize('view', $product);
+        // $this->authorize('view', $product);
 
         return new ProductResource($product);
     }
@@ -67,7 +67,7 @@ class ProductController extends Controller
      */
     public function update(ProductUpdateRequest $request, Product $product)
     {
-        $this->authorize('update', $product);
+        // $this->authorize('update', $product);
 
         $validated = $request->validated();
 
@@ -91,7 +91,7 @@ class ProductController extends Controller
      */
     public function destroy(Request $request, Product $product)
     {
-        $this->authorize('delete', $product);
+        // $this->authorize('delete', $product);
 
         if ($product->image) {
             Storage::delete($product->image);

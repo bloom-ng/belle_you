@@ -17,12 +17,6 @@
                 <div class="mt-4 px-4">
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.carousels.inputs.name')
-                        </h5>
-                        <span>{{ $carousel->name ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
                             @lang('crud.carousels.inputs.image')
                         </h5>
                         <x-partials.thumbnail
@@ -32,15 +26,15 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.carousels.inputs.overlay_text')
+                            @lang('crud.carousels.inputs.name')
                         </h5>
-                        <span>{{ $carousel->overlay_text ?? '-' }}</span>
+                        <span>{{ $carousel->name ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.carousels.inputs.status')
+                            @lang('crud.carousels.inputs.overlay_text')
                         </h5>
-                        <span>{{ $carousel->status ?? '-' }}</span>
+                        <span>{{ $carousel->overlay_text ?? '-' }}</span>
                     </div>
                 </div>
 

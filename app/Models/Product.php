@@ -20,10 +20,10 @@ class Product extends Model
         'description',
         'type',
         'short_description',
+        'shipping_fee',
         'sale_price',
         'sale_start',
         'sale_end',
-        'shipping_fee',
         'slug',
     ];
 

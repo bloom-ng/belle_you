@@ -19,7 +19,7 @@ class BannerController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Banner::class);
+        // $this->authorize('view-any', Banner::class);
 
         $search = $request->get('search', '');
 
@@ -36,7 +36,7 @@ class BannerController extends Controller
      */
     public function store(BannerStoreRequest $request)
     {
-        $this->authorize('create', Banner::class);
+        // $this->authorize('create', Banner::class);
 
         $validated = $request->validated();
         if ($request->hasFile('image')) {
@@ -55,7 +55,7 @@ class BannerController extends Controller
      */
     public function show(Request $request, Banner $banner)
     {
-        $this->authorize('view', $banner);
+        // $this->authorize('view', $banner);
 
         return new BannerResource($banner);
     }
@@ -67,7 +67,7 @@ class BannerController extends Controller
      */
     public function update(BannerUpdateRequest $request, Banner $banner)
     {
-        $this->authorize('update', $banner);
+        // $this->authorize('update', $banner);
 
         $validated = $request->validated();
 
@@ -91,7 +91,7 @@ class BannerController extends Controller
      */
     public function destroy(Request $request, Banner $banner)
     {
-        $this->authorize('delete', $banner);
+        // $this->authorize('delete', $banner);
 
         if ($banner->image) {
             Storage::delete($banner->image);

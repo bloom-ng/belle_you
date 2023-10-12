@@ -109,10 +109,8 @@ class CategoryControllerTest extends TestCase
         $category = Category::factory()->create();
 
         $data = [
-            'name' => $this->faker->text(255),
+            'name' => $this->faker->name(),
             'parent_id' => $this->faker->randomNumber(0),
-            'position' => $this->faker->randomNumber,
-            'product_id' => $this->faker->randomNumber,
         ];
 
         $response = $this->put(route('categories.update', $category), $data);
@@ -135,6 +133,6 @@ class CategoryControllerTest extends TestCase
 
         $response->assertRedirect(route('categories.index'));
 
-        $this->assertDeleted($category);
+        $this->assertModelMissing($category);
     }
 }

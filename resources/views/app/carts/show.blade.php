@@ -17,21 +17,15 @@
                 <div class="mt-4 px-4">
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
+                            @lang('crud.carts.inputs.user_id')
+                        </h5>
+                        <span>{{ $cart->user_id ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
                             @lang('crud.carts.inputs.product_id')
                         </h5>
                         <span>{{ $cart->product_id ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.carts.inputs.user_id')
-                        </h5>
-                        <span>{{ optional($cart->user)->name ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.carts.inputs.session')
-                        </h5>
-                        <span>{{ $cart->session ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">

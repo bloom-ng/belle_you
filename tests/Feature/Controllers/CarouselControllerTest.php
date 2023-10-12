@@ -111,7 +111,6 @@ class CarouselControllerTest extends TestCase
         $data = [
             'name' => $this->faker->name(),
             'overlay_text' => $this->faker->text,
-            'status' => $this->faker->word,
         ];
 
         $response = $this->put(route('carousels.update', $carousel), $data);
@@ -134,6 +133,6 @@ class CarouselControllerTest extends TestCase
 
         $response->assertRedirect(route('carousels.index'));
 
-        $this->assertDeleted($carousel);
+        $this->assertModelMissing($carousel);
     }
 }

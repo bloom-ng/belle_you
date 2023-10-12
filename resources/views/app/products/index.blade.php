@@ -74,6 +74,9 @@
                                     @lang('crud.products.inputs.short_description')
                                 </th>
                                 <th class="px-4 py-3 text-right">
+                                    @lang('crud.products.inputs.shipping_fee')
+                                </th>
+                                <th class="px-4 py-3 text-right">
                                     @lang('crud.products.inputs.sale_price')
                                 </th>
                                 <th class="px-4 py-3 text-left">
@@ -81,9 +84,6 @@
                                 </th>
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.products.inputs.sale_end')
-                                </th>
-                                <th class="px-4 py-3 text-right">
-                                    @lang('crud.products.inputs.shipping_fee')
                                 </th>
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.products.inputs.slug')
@@ -121,6 +121,9 @@
                                     {{ $product->short_description ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-right">
+                                    {{ $product->shipping_fee ?? '-' }}
+                                </td>
+                                <td class="px-4 py-3 text-right">
                                     {{ $product->sale_price ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
@@ -128,9 +131,6 @@
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $product->sale_end ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-right">
-                                    {{ $product->shipping_fee ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $product->slug ?? '-' }}

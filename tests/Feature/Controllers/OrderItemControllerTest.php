@@ -135,6 +135,6 @@ class OrderItemControllerTest extends TestCase
 
         $response->assertRedirect(route('order-items.index'));
 
-        $this->assertDeleted($orderItem);
+        $this->assertModelMissing($orderItem);
     }
 }

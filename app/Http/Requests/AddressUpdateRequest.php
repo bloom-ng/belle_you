@@ -24,7 +24,7 @@ class AddressUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', 'exists:users,id'],
+            'user_id' => ['required', 'max:255'],
             'country' => ['required', 'max:255', 'string'],
             'state' => ['required', 'max:255', 'string'],
             'city' => ['required', 'max:255', 'string'],

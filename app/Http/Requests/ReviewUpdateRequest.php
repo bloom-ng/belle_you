@@ -25,10 +25,11 @@ class ReviewUpdateRequest extends FormRequest
     {
         return [
             'user_id' => ['required', 'max:255'],
+            'product_id' => ['required', 'max:255'],
             'rating' => ['required', 'max:255'],
+            'title' => ['required', 'max:255', 'string'],
             'message' => ['required', 'max:255', 'string'],
             'visibility' => ['required', 'boolean'],
-            'product_id' => ['required', 'max:255'],
         ];
     }
 }

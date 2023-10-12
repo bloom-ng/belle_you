@@ -24,9 +24,9 @@ class BannerUpdateRequest extends FormRequest
     public function rules()
     {
         return [
+            'image' => ['nullable', 'image', 'max:1024'],
             'name' => ['required', 'max:255', 'string'],
             'position' => ['required', 'max:255', 'string'],
-            'image' => ['nullable', 'image', 'max:1024'],
         ];
     }
 }

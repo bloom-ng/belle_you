@@ -109,18 +109,17 @@ class ProductControllerTest extends TestCase
         $product = Product::factory()->create();
 
         $data = [
-            'name' => $this->faker->text(255),
-            'quantity' => $this->faker->randomNumber(0),
-            'image' => $this->faker->text(255),
+            'name' => $this->faker->name(),
+            'quantity' => $this->faker->randomNumber,
             'image_2' => $this->faker->text(255),
-            'price' => $this->faker->randomNumber(1),
+            'price' => $this->faker->randomFloat(2, 0, 9999),
             'description' => $this->faker->text,
-            'type' => $this->faker->numberBetween(0, 127),
+            'type' => 'ready_made',
             'short_description' => $this->faker->text,
+            'shipping_fee' => $this->faker->randomNumber(1),
             'sale_price' => $this->faker->randomNumber(1),
             'sale_start' => $this->faker->date,
             'sale_end' => $this->faker->date,
-            'shipping_fee' => $this->faker->randomNumber(1),
             'slug' => $this->faker->slug,
         ];
 
@@ -144,6 +143,6 @@ class ProductControllerTest extends TestCase
 
         $response->assertRedirect(route('products.index'));
 
-        $this->assertDeleted($product);
+        $this->assertModelMissing($product);
     }
 }

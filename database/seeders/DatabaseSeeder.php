@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ]);
         $this->call(PermissionsSeeder::class);
 
+        $this->call(UserSeeder::class);
         $this->call(AddressSeeder::class);
         $this->call(BannerSeeder::class);
         $this->call(CarouselSeeder::class);
@@ -32,10 +33,9 @@ class DatabaseSeeder extends Seeder
         $this->call(OrderSeeder::class);
         $this->call(OrderItemSeeder::class);
         $this->call(ProductSeeder::class);
-        $this->call(QuoteSeeder::class);
+        $this->call(ProductCategorySeeder::class);
         $this->call(ReviewSeeder::class);
         $this->call(StoreSettingSeeder::class);
         $this->call(UiSettingSeeder::class);
-        $this->call(UserSeeder::class);
     }
 }

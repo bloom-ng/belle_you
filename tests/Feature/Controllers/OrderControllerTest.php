@@ -108,22 +108,18 @@ class OrderControllerTest extends TestCase
     {
         $order = Order::factory()->create();
 
-        $user = User::factory()->create();
-
         $data = [
             'user_id' => $this->faker->randomNumber,
             'name' => $this->faker->name(),
             'payment_ref' => $this->faker->text(255),
-            'transacton_id' => $this->faker->text(255),
+            'transaction_id' => $this->faker->text(255),
             'state' => $this->faker->state,
             'country' => $this->faker->country,
-            'city' => $this->faker->city,
             'discount' => $this->faker->randomFloat(2, 0, 9999),
-            'payment_status' => $this->faker->numberBetween(0, 127),
+            'payments_status' => 'successful',
             'payment_response' => $this->faker->text,
             'order_status' => $this->faker->numberBetween(0, 127),
             'shipping_total' => $this->faker->randomNumber(1),
-            'user_id' => $user->id,
         ];
 
         $response = $this->put(route('orders.update', $order), $data);
@@ -146,6 +142,6 @@ class OrderControllerTest extends TestCase
 
         $response->assertRedirect(route('orders.index'));
 
-        $this->assertDeleted($order);
+        $this->assertModelMissing($order);
     }
 }

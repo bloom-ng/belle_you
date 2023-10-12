@@ -19,7 +19,7 @@ class CarouselController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Carousel::class);
+        // $this->authorize('view-any', Carousel::class);
 
         $search = $request->get('search', '');
 
@@ -36,7 +36,7 @@ class CarouselController extends Controller
      */
     public function store(CarouselStoreRequest $request)
     {
-        $this->authorize('create', Carousel::class);
+        // $this->authorize('create', Carousel::class);
 
         $validated = $request->validated();
         if ($request->hasFile('image')) {
@@ -55,7 +55,7 @@ class CarouselController extends Controller
      */
     public function show(Request $request, Carousel $carousel)
     {
-        $this->authorize('view', $carousel);
+        // $this->authorize('view', $carousel);
 
         return new CarouselResource($carousel);
     }
@@ -67,7 +67,7 @@ class CarouselController extends Controller
      */
     public function update(CarouselUpdateRequest $request, Carousel $carousel)
     {
-        $this->authorize('update', $carousel);
+        // $this->authorize('update', $carousel);
 
         $validated = $request->validated();
 
@@ -91,7 +91,7 @@ class CarouselController extends Controller
      */
     public function destroy(Request $request, Carousel $carousel)
     {
-        $this->authorize('delete', $carousel);
+        // $this->authorize('delete', $carousel);
 
         if ($carousel->image) {
             Storage::delete($carousel->image);

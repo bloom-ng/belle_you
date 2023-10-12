@@ -50,13 +50,10 @@
                         <thead class="text-gray-700">
                             <tr>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.carts.inputs.product_id')
-                                </th>
-                                <th class="px-4 py-3 text-left">
                                     @lang('crud.carts.inputs.user_id')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.carts.inputs.session')
+                                    @lang('crud.carts.inputs.product_id')
                                 </th>
                                 <th class="px-4 py-3 text-right">
                                     @lang('crud.carts.inputs.quantity')
@@ -71,13 +68,10 @@
                             @forelse($carts as $cart)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
+                                    {{ $cart->user_id ?? '-' }}
+                                </td>
+                                <td class="px-4 py-3 text-left">
                                     {{ $cart->product_id ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ optional($cart->user)->name ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $cart->session ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-right">
                                     {{ $cart->quantity ?? '-' }}
@@ -150,7 +144,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="6">
+                                <td colspan="5">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -158,7 +152,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="6">
+                                <td colspan="5">
                                     <div class="mt-10 px-4">
                                         {!! $carts->render() !!}
                                     </div>

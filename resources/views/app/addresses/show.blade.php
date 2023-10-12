@@ -19,7 +19,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.addresses.inputs.user_id')
                         </h5>
-                        <span>{{ optional($address->user)->name ?? '-' }}</span>
+                        <span>{{ $address->user_id ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">

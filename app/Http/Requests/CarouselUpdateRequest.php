@@ -24,10 +24,9 @@ class CarouselUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:255', 'string'],
             'image' => ['nullable', 'image', 'max:1024'],
+            'name' => ['required', 'max:255', 'string'],
             'overlay_text' => ['required', 'max:255', 'string'],
-            'status' => ['required', 'max:255', 'string'],
         ];
     }
 }

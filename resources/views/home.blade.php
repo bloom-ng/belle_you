@@ -8,6 +8,8 @@
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.4/dist/full.css" rel="stylesheet" type="text/css" />
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href=" {{ asset('css/app.css') }} ">
+    <script src=" {{asset('js/app.js')}} "></script>
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 

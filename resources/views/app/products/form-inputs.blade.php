@@ -71,7 +71,6 @@
             :value="old('image_2', ($editing ? $product->image_2 : ''))"
             maxlength="255"
             placeholder="Image 2"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -99,14 +98,11 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="type"
-            label="Type"
-            :value="old('type', ($editing ? $product->type : ''))"
-            maxlength="255"
-            placeholder="Type"
-            required
-        ></x-inputs.text>
+        <x-inputs.select name="type" label="Type">
+            @php $selected = old('type', ($editing ? $product->type : '')) @endphp
+            <option value="ready_made" {{ $selected == 'ready_made' ? 'selected' : '' }} >Ready made</option>
+            <option value="custom" {{ $selected == 'custom' ? 'selected' : '' }} >Custom</option>
+        </x-inputs.select>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
@@ -114,10 +110,21 @@
             name="short_description"
             label="Short Description"
             maxlength="255"
-            required
             >{{ old('short_description', ($editing ? $product->short_description
             : '')) }}</x-inputs.textarea
         >
+    </x-inputs.group>
+
+    <x-inputs.group class="w-full">
+        <x-inputs.number
+            name="shipping_fee"
+            label="Shipping Fee"
+            :value="old('shipping_fee', ($editing ? $product->shipping_fee : '0.00'))"
+            max="255"
+            step="0.01"
+            placeholder="Shipping Fee"
+            required
+        ></x-inputs.number>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
@@ -128,7 +135,6 @@
             max="255"
             step="0.01"
             placeholder="Sale Price"
-            required
         ></x-inputs.number>
     </x-inputs.group>
 
@@ -138,7 +144,6 @@
             label="Sale Start"
             value="{{ old('sale_start', ($editing ? optional($product->sale_start)->format('Y-m-d') : '')) }}"
             max="255"
-            required
         ></x-inputs.date>
     </x-inputs.group>
 
@@ -148,20 +153,7 @@
             label="Sale End"
             value="{{ old('sale_end', ($editing ? optional($product->sale_end)->format('Y-m-d') : '')) }}"
             max="255"
-            required
         ></x-inputs.date>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.number
-            name="shipping_fee"
-            label="Shipping Fee"
-            :value="old('shipping_fee', ($editing ? $product->shipping_fee : ''))"
-            max="255"
-            step="0.01"
-            placeholder="Shipping Fee"
-            required
-        ></x-inputs.number>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">

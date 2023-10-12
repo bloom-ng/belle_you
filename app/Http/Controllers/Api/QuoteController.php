@@ -18,7 +18,7 @@ class QuoteController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Quote::class);
+        // $this->authorize('view-any', Quote::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +35,7 @@ class QuoteController extends Controller
      */
     public function store(QuoteStoreRequest $request)
     {
-        $this->authorize('create', Quote::class);
+        // $this->authorize('create', Quote::class);
 
         $validated = $request->validated();
 
@@ -51,7 +51,7 @@ class QuoteController extends Controller
      */
     public function show(Request $request, Quote $quote)
     {
-        $this->authorize('view', $quote);
+        // $this->authorize('view', $quote);
 
         return new QuoteResource($quote);
     }
@@ -63,7 +63,7 @@ class QuoteController extends Controller
      */
     public function update(QuoteUpdateRequest $request, Quote $quote)
     {
-        $this->authorize('update', $quote);
+        // $this->authorize('update', $quote);
 
         $validated = $request->validated();
 
@@ -79,7 +79,7 @@ class QuoteController extends Controller
      */
     public function destroy(Request $request, Quote $quote)
     {
-        $this->authorize('delete', $quote);
+        // $this->authorize('delete', $quote);
 
         $quote->delete();
 

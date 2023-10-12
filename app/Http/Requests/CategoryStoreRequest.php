@@ -26,8 +26,6 @@ class CategoryStoreRequest extends FormRequest
         return [
             'name' => ['required', 'max:255', 'string'],
             'parent_id' => ['required', 'numeric'],
-            'position' => ['required', 'max:255'],
-            'product_id' => ['required', 'max:255'],
         ];
     }
 }

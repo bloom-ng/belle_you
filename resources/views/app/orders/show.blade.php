@@ -19,7 +19,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.orders.inputs.user_id')
                         </h5>
-                        <span>{{ optional($order->user)->name ?? '-' }}</span>
+                        <span>{{ $order->user_id ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
@@ -35,9 +35,9 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.orders.inputs.transacton_id')
+                            @lang('crud.orders.inputs.transaction_id')
                         </h5>
-                        <span>{{ $order->transacton_id ?? '-' }}</span>
+                        <span>{{ $order->transaction_id ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
@@ -53,21 +53,15 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.orders.inputs.city')
-                        </h5>
-                        <span>{{ $order->city ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
                             @lang('crud.orders.inputs.discount')
                         </h5>
                         <span>{{ $order->discount ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.orders.inputs.payment_status')
+                            @lang('crud.orders.inputs.payments_status')
                         </h5>
-                        <span>{{ $order->payment_status ?? '-' }}</span>
+                        <span>{{ $order->payments_status ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">

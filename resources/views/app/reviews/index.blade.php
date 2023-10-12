@@ -53,16 +53,19 @@
                                     @lang('crud.reviews.inputs.user_id')
                                 </th>
                                 <th class="px-4 py-3 text-left">
+                                    @lang('crud.reviews.inputs.product_id')
+                                </th>
+                                <th class="px-4 py-3 text-left">
                                     @lang('crud.reviews.inputs.rating')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.reviews.inputs.title')
                                 </th>
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.reviews.inputs.message')
                                 </th>
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.reviews.inputs.visibility')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.reviews.inputs.product_id')
                                 </th>
                                 <th></th>
                             </tr>
@@ -74,16 +77,19 @@
                                     {{ $review->user_id ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
+                                    {{ $review->product_id ?? '-' }}
+                                </td>
+                                <td class="px-4 py-3 text-left">
                                     {{ $review->rating ?? '-' }}
+                                </td>
+                                <td class="px-4 py-3 text-left">
+                                    {{ $review->title ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $review->message ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $review->visibility ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $review->product_id ?? '-' }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"
@@ -150,7 +156,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="6">
+                                <td colspan="7">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -158,7 +164,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="6">
+                                <td colspan="7">
                                     <div class="mt-10 px-4">
                                         {!! $reviews->render() !!}
                                     </div>

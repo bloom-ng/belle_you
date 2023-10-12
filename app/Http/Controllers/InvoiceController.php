@@ -47,7 +47,7 @@ class InvoiceController extends Controller
         $this->authorize('create', Invoice::class);
 
         $validated = $request->validated();
-        $validated['line_item'] = json_decode($validated['line_item'], true);
+        $validated['line_items'] = json_decode($validated['line_items'], true);
 
         $invoice = Invoice::create($validated);
 
@@ -90,7 +90,7 @@ class InvoiceController extends Controller
         $this->authorize('update', $invoice);
 
         $validated = $request->validated();
-        $validated['line_item'] = json_decode($validated['line_item'], true);
+        $validated['line_items'] = json_decode($validated['line_items'], true);
 
         $invoice->update($validated);
 

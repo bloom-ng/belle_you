@@ -2,17 +2,6 @@
 
 <div class="flex flex-wrap">
     <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="name"
-            label="Name"
-            :value="old('name', ($editing ? $carousel->name : ''))"
-            maxlength="255"
-            placeholder="Name"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
         <div
             x-data="imageViewer('{{ $editing && $carousel->image ? \Storage::url($carousel->image) : '' }}')"
         >
@@ -54,6 +43,17 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
+        <x-inputs.text
+            name="name"
+            label="Name"
+            :value="old('name', ($editing ? $carousel->name : ''))"
+            maxlength="255"
+            placeholder="Name"
+            required
+        ></x-inputs.text>
+    </x-inputs.group>
+
+    <x-inputs.group class="w-full">
         <x-inputs.textarea
             name="overlay_text"
             label="Overlay Text"
@@ -62,16 +62,5 @@
             >{{ old('overlay_text', ($editing ? $carousel->overlay_text : ''))
             }}</x-inputs.textarea
         >
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="status"
-            label="Status"
-            :value="old('status', ($editing ? $carousel->status : ''))"
-            maxlength="255"
-            placeholder="Status"
-            required
-        ></x-inputs.text>
     </x-inputs.group>
 </div>

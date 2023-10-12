@@ -18,7 +18,7 @@ class InvoiceController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Invoice::class);
+        // $this->authorize('view-any', Invoice::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +35,7 @@ class InvoiceController extends Controller
      */
     public function store(InvoiceStoreRequest $request)
     {
-        $this->authorize('create', Invoice::class);
+        // $this->authorize('create', Invoice::class);
 
         $validated = $request->validated();
         $validated['line_item'] = json_decode($validated['line_item'], true);
@@ -52,7 +52,7 @@ class InvoiceController extends Controller
      */
     public function show(Request $request, Invoice $invoice)
     {
-        $this->authorize('view', $invoice);
+        // $this->authorize('view', $invoice);
 
         return new InvoiceResource($invoice);
     }
@@ -64,7 +64,7 @@ class InvoiceController extends Controller
      */
     public function update(InvoiceUpdateRequest $request, Invoice $invoice)
     {
-        $this->authorize('update', $invoice);
+        // $this->authorize('update', $invoice);
 
         $validated = $request->validated();
 
@@ -82,7 +82,7 @@ class InvoiceController extends Controller
      */
     public function destroy(Request $request, Invoice $invoice)
     {
-        $this->authorize('delete', $invoice);
+        // $this->authorize('delete', $invoice);
 
         $invoice->delete();
 

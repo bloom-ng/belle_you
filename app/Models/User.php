@@ -22,37 +22,21 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use TwoFactorAuthenticatable;
 
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'phone_number',
-        'role',
-        'default_address_id',
-    ];
+    protected $fillable = ['name', 'email', 'password'];
 
     protected $searchableFields = ['*'];
 
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'two_factor_secret',
+        'two_factor_recovery_codes',
+    ];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'two_factor_confirmed_at' => 'datetime',
     ];
-
-    public function carts()
-    {
-        return $this->hasMany(Cart::class);
-    }
-
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
-
-    public function addresses()
-    {
-        return $this->hasMany(Address::class);
-    }
 
     public function isSuperAdmin()
     {

@@ -27,24 +27,6 @@
                         </h5>
                         <span>{{ $user->email ?? '-' }}</span>
                     </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.users.inputs.phone_number')
-                        </h5>
-                        <span>{{ $user->phone_number ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.users.inputs.role')
-                        </h5>
-                        <span>{{ $user->role ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.users.inputs.default_address_id')
-                        </h5>
-                        <span>{{ $user->default_address_id ?? '-' }}</span>
-                    </div>
                 </div>
 
                 <div class="mt-4 px-4">

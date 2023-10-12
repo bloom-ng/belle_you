@@ -17,7 +17,7 @@ class UserCartsController extends Controller
      */
     public function index(Request $request, User $user)
     {
-        $this->authorize('view', $user);
+        // $this->authorize('view', $user);
 
         $search = $request->get('search', '');
 
@@ -37,7 +37,7 @@ class UserCartsController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        $this->authorize('create', Cart::class);
+        // $this->authorize('create', Cart::class);
 
         $validated = $request->validate([
             'product_id' => ['required', 'max:255'],

@@ -18,7 +18,7 @@ class OrderItemController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', OrderItem::class);
+        // $this->authorize('view-any', OrderItem::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +35,7 @@ class OrderItemController extends Controller
      */
     public function store(OrderItemStoreRequest $request)
     {
-        $this->authorize('create', OrderItem::class);
+        // $this->authorize('create', OrderItem::class);
 
         $validated = $request->validated();
 
@@ -51,7 +51,7 @@ class OrderItemController extends Controller
      */
     public function show(Request $request, OrderItem $orderItem)
     {
-        $this->authorize('view', $orderItem);
+        // $this->authorize('view', $orderItem);
 
         return new OrderItemResource($orderItem);
     }
@@ -65,7 +65,7 @@ class OrderItemController extends Controller
         OrderItemUpdateRequest $request,
         OrderItem $orderItem
     ) {
-        $this->authorize('update', $orderItem);
+        // $this->authorize('update', $orderItem);
 
         $validated = $request->validated();
 
@@ -81,7 +81,7 @@ class OrderItemController extends Controller
      */
     public function destroy(Request $request, OrderItem $orderItem)
     {
-        $this->authorize('delete', $orderItem);
+        // $this->authorize('delete', $orderItem);
 
         $orderItem->delete();
 

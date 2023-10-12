@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'parent_id', 'position', 'product_id'];
+    protected $fillable = ['name', 'parent_id'];
 
     protected $searchableFields = ['*'];
 }

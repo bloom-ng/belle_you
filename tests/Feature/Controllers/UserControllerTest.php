@@ -66,6 +66,8 @@ class UserControllerTest extends TestCase
 
         unset($data['password']);
         unset($data['email_verified_at']);
+        unset($data['two_factor_confirmed_at']);
+        unset($data['profile_photo_path']);
 
         $this->assertDatabaseHas('users', $data);
 
@@ -114,9 +116,6 @@ class UserControllerTest extends TestCase
         $data = [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique->email,
-            'phone_number' => $this->faker->randomNumber(0),
-            'role' => $this->faker->text(255),
-            'default_address_id' => $this->faker->text(255),
         ];
 
         $data['password'] = \Str::random('8');
@@ -125,6 +124,8 @@ class UserControllerTest extends TestCase
 
         unset($data['password']);
         unset($data['email_verified_at']);
+        unset($data['two_factor_confirmed_at']);
+        unset($data['profile_photo_path']);
 
         $data['id'] = $user->id;
 
@@ -144,6 +145,6 @@ class UserControllerTest extends TestCase
 
         $response->assertRedirect(route('users.index'));
 
-        $this->assertDeleted($user);
+        $this->assertModelMissing($user);
     }
 }

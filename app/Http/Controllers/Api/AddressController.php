@@ -18,7 +18,7 @@ class AddressController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Address::class);
+        // $this->authorize('view-any', Address::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +35,7 @@ class AddressController extends Controller
      */
     public function store(AddressStoreRequest $request)
     {
-        $this->authorize('create', Address::class);
+        // $this->authorize('create', Address::class);
 
         $validated = $request->validated();
 
@@ -51,7 +51,7 @@ class AddressController extends Controller
      */
     public function show(Request $request, Address $address)
     {
-        $this->authorize('view', $address);
+        // $this->authorize('view', $address);
 
         return new AddressResource($address);
     }
@@ -63,7 +63,7 @@ class AddressController extends Controller
      */
     public function update(AddressUpdateRequest $request, Address $address)
     {
-        $this->authorize('update', $address);
+        // $this->authorize('update', $address);
 
         $validated = $request->validated();
 
@@ -79,7 +79,7 @@ class AddressController extends Controller
      */
     public function destroy(Request $request, Address $address)
     {
-        $this->authorize('delete', $address);
+        // $this->authorize('delete', $address);
 
         $address->delete();
 

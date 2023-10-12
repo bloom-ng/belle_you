@@ -15,21 +15,15 @@ class Order extends Model
         'user_id',
         'name',
         'payment_ref',
-        'transacton_id',
+        'transaction_id',
         'state',
         'country',
-        'city',
         'discount',
-        'payment_status',
+        'payments_status',
         'payment_response',
         'order_status',
         'shipping_total',
     ];
 
     protected $searchableFields = ['*'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

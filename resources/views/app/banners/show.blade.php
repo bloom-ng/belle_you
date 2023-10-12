@@ -17,6 +17,15 @@
                 <div class="mt-4 px-4">
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
+                            @lang('crud.banners.inputs.image')
+                        </h5>
+                        <x-partials.thumbnail
+                            src="{{ $banner->image ? \Storage::url($banner->image) : '' }}"
+                            size="150"
+                        />
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
                             @lang('crud.banners.inputs.name')
                         </h5>
                         <span>{{ $banner->name ?? '-' }}</span>
@@ -26,15 +35,6 @@
                             @lang('crud.banners.inputs.position')
                         </h5>
                         <span>{{ $banner->position ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.banners.inputs.image')
-                        </h5>
-                        <x-partials.thumbnail
-                            src="{{ $banner->image ? \Storage::url($banner->image) : '' }}"
-                            size="150"
-                        />
                     </div>
                 </div>
 

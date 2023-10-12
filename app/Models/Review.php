@@ -13,10 +13,11 @@ class Review extends Model
 
     protected $fillable = [
         'user_id',
+        'product_id',
         'rating',
+        'title',
         'message',
         'visibility',
-        'product_id',
     ];
 
     protected $searchableFields = ['*'];

@@ -2,13 +2,35 @@
 
 <div class="flex flex-wrap">
     <x-inputs.group class="w-full">
+        <x-inputs.text
+            name="user_id"
+            label="User Id"
+            :value="old('user_id', ($editing ? $invoice->user_id : ''))"
+            maxlength="255"
+            placeholder="User Id"
+            required
+        ></x-inputs.text>
+    </x-inputs.group>
+
+    <x-inputs.group class="w-full">
+        <x-inputs.text
+            name="invoice_ref"
+            label="Invoice Ref"
+            :value="old('invoice_ref', ($editing ? $invoice->invoice_ref : ''))"
+            maxlength="255"
+            placeholder="Invoice Ref"
+            required
+        ></x-inputs.text>
+    </x-inputs.group>
+
+    <x-inputs.group class="w-full">
         <x-inputs.textarea
-            name="line_item"
-            label="Line Item"
+            name="line_items"
+            label="Line Items"
             maxlength="255"
             required
-            >{{ old('line_item', ($editing ? json_encode($invoice->line_item) :
-            '')) }}</x-inputs.textarea
+            >{{ old('line_items', ($editing ? json_encode($invoice->line_items)
+            : '')) }}</x-inputs.textarea
         >
     </x-inputs.group>
 
@@ -25,79 +47,34 @@
 
     <x-inputs.group class="w-full">
         <x-inputs.text
-            name="billed_to_line_1"
-            label="Billed To Line 1"
-            :value="old('billed_to_line_1', ($editing ? $invoice->billed_to_line_1 : ''))"
+            name="user_name"
+            label="User Name"
+            :value="old('user_name', ($editing ? $invoice->user_name : ''))"
             maxlength="255"
-            placeholder="Billed To Line 1"
+            placeholder="User Name"
             required
         ></x-inputs.text>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
         <x-inputs.text
-            name="billed_to_line_2"
-            label="Billed To Line 2"
-            :value="old('billed_to_line_2', ($editing ? $invoice->billed_to_line_2 : ''))"
+            name="phone"
+            label="Phone"
+            :value="old('phone', ($editing ? $invoice->phone : ''))"
             maxlength="255"
-            placeholder="Billed To Line 2"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="account_name"
-            label="Account Name"
-            :value="old('account_name', ($editing ? $invoice->account_name : ''))"
-            maxlength="255"
-            placeholder="Account Name"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="account_number"
-            label="Account Number"
-            :value="old('account_number', ($editing ? $invoice->account_number : ''))"
-            maxlength="255"
-            placeholder="Account Number"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="bank_name"
-            label="Bank Name"
-            :value="old('bank_name', ($editing ? $invoice->bank_name : ''))"
-            maxlength="255"
-            placeholder="Bank Name"
+            placeholder="Phone"
             required
         ></x-inputs.text>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
         <x-inputs.number
-            name="service_charge"
-            label="Service Charge"
-            :value="old('service_charge', ($editing ? $invoice->service_charge : ''))"
+            name="total"
+            label="Total"
+            :value="old('total', ($editing ? $invoice->total : ''))"
             max="255"
             step="0.01"
-            placeholder="Service Charge"
-            required
-        ></x-inputs.number>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.number
-            name="vat"
-            label="Vat"
-            :value="old('vat', ($editing ? $invoice->vat : ''))"
-            max="255"
-            step="0.01"
-            placeholder="Vat"
+            placeholder="Total"
             required
         ></x-inputs.number>
     </x-inputs.group>

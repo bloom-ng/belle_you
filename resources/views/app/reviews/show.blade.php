@@ -23,9 +23,21 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
+                            @lang('crud.reviews.inputs.product_id')
+                        </h5>
+                        <span>{{ $review->product_id ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
                             @lang('crud.reviews.inputs.rating')
                         </h5>
                         <span>{{ $review->rating ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.reviews.inputs.title')
+                        </h5>
+                        <span>{{ $review->title ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
@@ -38,12 +50,6 @@
                             @lang('crud.reviews.inputs.visibility')
                         </h5>
                         <span>{{ $review->visibility ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.reviews.inputs.product_id')
-                        </h5>
-                        <span>{{ $review->product_id ?? '-' }}</span>
                     </div>
                 </div>
 

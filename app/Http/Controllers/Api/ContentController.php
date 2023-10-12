@@ -18,7 +18,7 @@ class ContentController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Content::class);
+        // $this->authorize('view-any', Content::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +35,7 @@ class ContentController extends Controller
      */
     public function store(ContentStoreRequest $request)
     {
-        $this->authorize('create', Content::class);
+        // $this->authorize('create', Content::class);
 
         $validated = $request->validated();
 
@@ -51,7 +51,7 @@ class ContentController extends Controller
      */
     public function show(Request $request, Content $content)
     {
-        $this->authorize('view', $content);
+        // $this->authorize('view', $content);
 
         return new ContentResource($content);
     }
@@ -63,7 +63,7 @@ class ContentController extends Controller
      */
     public function update(ContentUpdateRequest $request, Content $content)
     {
-        $this->authorize('update', $content);
+        // $this->authorize('update', $content);
 
         $validated = $request->validated();
 
@@ -79,7 +79,7 @@ class ContentController extends Controller
      */
     public function destroy(Request $request, Content $content)
     {
-        $this->authorize('delete', $content);
+        // $this->authorize('delete', $content);
 
         $content->delete();
 

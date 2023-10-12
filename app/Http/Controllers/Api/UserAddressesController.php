@@ -17,7 +17,7 @@ class UserAddressesController extends Controller
      */
     public function index(Request $request, User $user)
     {
-        $this->authorize('view', $user);
+        // $this->authorize('view', $user);
 
         $search = $request->get('search', '');
 
@@ -37,7 +37,7 @@ class UserAddressesController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        $this->authorize('create', Address::class);
+        // $this->authorize('create', Address::class);
 
         $validated = $request->validate([
             'country' => ['required', 'max:255', 'string'],

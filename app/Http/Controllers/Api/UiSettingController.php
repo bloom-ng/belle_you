@@ -18,7 +18,7 @@ class UiSettingController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', UiSetting::class);
+        // $this->authorize('view-any', UiSetting::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +35,7 @@ class UiSettingController extends Controller
      */
     public function store(UiSettingStoreRequest $request)
     {
-        $this->authorize('create', UiSetting::class);
+        // $this->authorize('create', UiSetting::class);
 
         $validated = $request->validated();
 
@@ -51,7 +51,7 @@ class UiSettingController extends Controller
      */
     public function show(Request $request, UiSetting $uiSetting)
     {
-        $this->authorize('view', $uiSetting);
+        // $this->authorize('view', $uiSetting);
 
         return new UiSettingResource($uiSetting);
     }
@@ -65,7 +65,7 @@ class UiSettingController extends Controller
         UiSettingUpdateRequest $request,
         UiSetting $uiSetting
     ) {
-        $this->authorize('update', $uiSetting);
+        // $this->authorize('update', $uiSetting);
 
         $validated = $request->validated();
 
@@ -81,7 +81,7 @@ class UiSettingController extends Controller
      */
     public function destroy(Request $request, UiSetting $uiSetting)
     {
-        $this->authorize('delete', $uiSetting);
+        // $this->authorize('delete', $uiSetting);
 
         $uiSetting->delete();
 

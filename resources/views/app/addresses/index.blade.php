@@ -83,7 +83,7 @@
                             @forelse($addresses as $address)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
-                                    {{ optional($address->user)->name ?? '-' }}
+                                    {{ $address->user_id ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $address->country ?? '-' }}

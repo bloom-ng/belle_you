@@ -26,7 +26,7 @@ class UiSettingFactory extends Factory
             'key' => $this->faker->text(255),
             'value' => $this->faker->text,
             'page' => $this->faker->text(255),
-            'name' => $this->faker->text(255),
+            'name' => $this->faker->name(),
         ];
     }
 }

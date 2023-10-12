@@ -2,28 +2,6 @@
 
 <div class="flex flex-wrap">
     <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="name"
-            label="Name"
-            :value="old('name', ($editing ? $banner->name : ''))"
-            maxlength="255"
-            placeholder="Name"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="position"
-            label="Position"
-            :value="old('position', ($editing ? $banner->position : ''))"
-            maxlength="255"
-            placeholder="Position"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
         <div
             x-data="imageViewer('{{ $editing && $banner->image ? \Storage::url($banner->image) : '' }}')"
         >
@@ -62,5 +40,27 @@
             @error('image') @include('components.inputs.partials.error')
             @enderror
         </div>
+    </x-inputs.group>
+
+    <x-inputs.group class="w-full">
+        <x-inputs.text
+            name="name"
+            label="Name"
+            :value="old('name', ($editing ? $banner->name : ''))"
+            maxlength="255"
+            placeholder="Name"
+            required
+        ></x-inputs.text>
+    </x-inputs.group>
+
+    <x-inputs.group class="w-full">
+        <x-inputs.text
+            name="position"
+            label="Position"
+            :value="old('position', ($editing ? $banner->position : ''))"
+            maxlength="255"
+            placeholder="Position"
+            required
+        ></x-inputs.text>
     </x-inputs.group>
 </div>

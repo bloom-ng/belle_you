@@ -50,31 +50,25 @@
                         <thead class="text-gray-700">
                             <tr>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.invoices.inputs.line_item')
+                                    @lang('crud.invoices.inputs.user_id')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.invoices.inputs.invoice_ref')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.invoices.inputs.line_items')
                                 </th>
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.invoices.inputs.status')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.invoices.inputs.billed_to_line_1')
+                                    @lang('crud.invoices.inputs.user_name')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.invoices.inputs.billed_to_line_2')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.invoices.inputs.account_name')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.invoices.inputs.account_number')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.invoices.inputs.bank_name')
+                                    @lang('crud.invoices.inputs.phone')
                                 </th>
                                 <th class="px-4 py-3 text-right">
-                                    @lang('crud.invoices.inputs.service_charge')
-                                </th>
-                                <th class="px-4 py-3 text-right">
-                                    @lang('crud.invoices.inputs.vat')
+                                    @lang('crud.invoices.inputs.total')
                                 </th>
                                 <th></th>
                             </tr>
@@ -82,34 +76,28 @@
                         <tbody class="text-gray-600">
                             @forelse($invoices as $invoice)
                             <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 text-left">
+                                    {{ $invoice->user_id ?? '-' }}
+                                </td>
+                                <td class="px-4 py-3 text-left">
+                                    {{ $invoice->invoice_ref ?? '-' }}
+                                </td>
                                 <td class="px-4 py-3 text-right">
                                     <pre>
-{{ json_encode($invoice->line_item) ?? '-' }}</pre
+{{ json_encode($invoice->line_items) ?? '-' }}</pre
                                     >
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $invoice->status ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $invoice->billed_to_line_1 ?? '-' }}
+                                    {{ $invoice->user_name ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $invoice->billed_to_line_2 ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $invoice->account_name ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $invoice->account_number ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $invoice->bank_name ?? '-' }}
+                                    {{ $invoice->phone ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-right">
-                                    {{ $invoice->service_charge ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-right">
-                                    {{ $invoice->vat ?? '-' }}
+                                    {{ $invoice->total ?? '-' }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"
@@ -176,7 +164,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="10">
+                                <td colspan="8">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -184,7 +172,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="10">
+                                <td colspan="8">
                                     <div class="mt-10 px-4">
                                         {!! $invoices->render() !!}
                                     </div>

@@ -133,6 +133,6 @@ class BannerControllerTest extends TestCase
 
         $response->assertRedirect(route('banners.index'));
 
-        $this->assertDeleted($banner);
+        $this->assertModelMissing($banner);
     }
 }

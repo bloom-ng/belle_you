@@ -17,9 +17,23 @@
                 <div class="mt-4 px-4">
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.invoices.inputs.line_item')
+                            @lang('crud.invoices.inputs.user_id')
                         </h5>
-                        <pre>{{ json_encode($invoice->line_item) ?? '-' }}</pre>
+                        <span>{{ $invoice->user_id ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.invoices.inputs.invoice_ref')
+                        </h5>
+                        <span>{{ $invoice->invoice_ref ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.invoices.inputs.line_items')
+                        </h5>
+                        <pre>
+{{ json_encode($invoice->line_items) ?? '-' }}</pre
+                        >
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
@@ -29,45 +43,21 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.invoices.inputs.billed_to_line_1')
+                            @lang('crud.invoices.inputs.user_name')
                         </h5>
-                        <span>{{ $invoice->billed_to_line_1 ?? '-' }}</span>
+                        <span>{{ $invoice->user_name ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.invoices.inputs.billed_to_line_2')
+                            @lang('crud.invoices.inputs.phone')
                         </h5>
-                        <span>{{ $invoice->billed_to_line_2 ?? '-' }}</span>
+                        <span>{{ $invoice->phone ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.invoices.inputs.account_name')
+                            @lang('crud.invoices.inputs.total')
                         </h5>
-                        <span>{{ $invoice->account_name ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.invoices.inputs.account_number')
-                        </h5>
-                        <span>{{ $invoice->account_number ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.invoices.inputs.bank_name')
-                        </h5>
-                        <span>{{ $invoice->bank_name ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.invoices.inputs.service_charge')
-                        </h5>
-                        <span>{{ $invoice->service_charge ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.invoices.inputs.vat')
-                        </h5>
-                        <span>{{ $invoice->vat ?? '-' }}</span>
+                        <span>{{ $invoice->total ?? '-' }}</span>
                     </div>
                 </div>
 

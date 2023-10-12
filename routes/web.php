@@ -6,7 +6,6 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AddressController;
@@ -19,6 +18,7 @@ use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\UiSettingController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\StoreSettingController;
+use App\Http\Controllers\ProductCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +33,6 @@ use App\Http\Controllers\StoreSettingController;
 
 Route::get('/', function () {
     return view('home');
-});
-
-Route::get('/product', function () {
-    return view("product");
 });
 
 Route::middleware(['auth:sanctum', 'verified'])
@@ -61,9 +57,9 @@ Route::prefix('/')
         Route::resource('orders', OrderController::class);
         Route::resource('order-items', OrderItemController::class);
         Route::resource('products', ProductController::class);
+        Route::resource('product-categories', ProductCategoryController::class);
         Route::resource('reviews', ReviewController::class);
         Route::resource('store-settings', StoreSettingController::class);
         Route::resource('ui-settings', UiSettingController::class);
         Route::resource('users', UserController::class);
-        Route::resource('quotes', QuoteController::class);
     });

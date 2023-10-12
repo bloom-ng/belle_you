@@ -50,16 +50,13 @@
                         <thead class="text-gray-700">
                             <tr>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.carousels.inputs.name')
-                                </th>
-                                <th class="px-4 py-3 text-left">
                                     @lang('crud.carousels.inputs.image')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.carousels.inputs.overlay_text')
+                                    @lang('crud.carousels.inputs.name')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.carousels.inputs.status')
+                                    @lang('crud.carousels.inputs.overlay_text')
                                 </th>
                                 <th></th>
                             </tr>
@@ -68,18 +65,15 @@
                             @forelse($carousels as $carousel)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
-                                    {{ $carousel->name ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
                                     <x-partials.thumbnail
                                         src="{{ $carousel->image ? \Storage::url($carousel->image) : '' }}"
                                     />
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $carousel->overlay_text ?? '-' }}
+                                    {{ $carousel->name ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $carousel->status ?? '-' }}
+                                    {{ $carousel->overlay_text ?? '-' }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"
@@ -146,7 +140,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5">
+                                <td colspan="4">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -154,7 +148,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="5">
+                                <td colspan="4">
                                     <div class="mt-10 px-4">
                                         {!! $carousels->render() !!}
                                     </div>

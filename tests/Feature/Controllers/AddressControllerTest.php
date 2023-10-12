@@ -108,19 +108,16 @@ class AddressControllerTest extends TestCase
     {
         $address = Address::factory()->create();
 
-        $user = User::factory()->create();
-
         $data = [
             'user_id' => $this->faker->randomNumber,
-            'country' => $this->faker->country,
+            'country' => $this->faker->text(255),
             'state' => $this->faker->state,
             'city' => $this->faker->city,
             'zip_code' => $this->faker->text(255),
             'address_line_1' => $this->faker->text,
             'address_line_2' => $this->faker->text,
             'phone' => $this->faker->phoneNumber,
-            'phone_2' => $this->faker->phoneNumber,
-            'user_id' => $user->id,
+            'phone_2' => $this->faker->text(255),
         ];
 
         $response = $this->put(route('addresses.update', $address), $data);
@@ -143,6 +140,6 @@ class AddressControllerTest extends TestCase
 
         $response->assertRedirect(route('addresses.index'));
 
-        $this->assertDeleted($address);
+        $this->assertModelMissing($address);
     }
 }

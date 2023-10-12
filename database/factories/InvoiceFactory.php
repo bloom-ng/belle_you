@@ -23,15 +23,14 @@ class InvoiceFactory extends Factory
     public function definition()
     {
         return [
-            'line_item' => [],
+            'user_id' => 2,
+            // 'name' => $this->faker->name(),
+            'invoice_ref' => $this->faker->text(255),
+            'line_items' => [],
             'status' => $this->faker->word,
-            'billed_to_line_1' => $this->faker->text(255),
-            'billed_to_line_2' => $this->faker->phoneNumber,
-            'account_name' => $this->faker->text(255),
-            'account_number' => $this->faker->randomNumber,
-            'bank_name' => $this->faker->text(255),
-            'service_charge' => $this->faker->randomNumber(1),
-            'vat' => $this->faker->randomNumber(1),
+            'user_name' => $this->faker->text(255),
+            'phone' => $this->faker->phoneNumber,
+            'total' => $this->faker->randomFloat(2, 0, 9999),
         ];
     }
 }

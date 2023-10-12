@@ -136,6 +136,6 @@ class ContentControllerTest extends TestCase
 
         $response->assertRedirect(route('contents.index'));
 
-        $this->assertDeleted($content);
+        $this->assertModelMissing($content);
     }
 }

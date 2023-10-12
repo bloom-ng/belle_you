@@ -138,6 +138,6 @@ class StoreSettingControllerTest extends TestCase
 
         $response->assertRedirect(route('store-settings.index'));
 
-        $this->assertDeleted($storeSetting);
+        $this->assertModelMissing($storeSetting);
     }
 }

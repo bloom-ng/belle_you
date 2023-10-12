@@ -23,9 +23,8 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(255),
+            'name' => $this->faker->name(),
             'parent_id' => $this->faker->randomNumber(0),
-            'position' => $this->faker->randomNumber,
         ];
     }
 }

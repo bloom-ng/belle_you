@@ -18,7 +18,7 @@ class StoreSettingController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', StoreSetting::class);
+        // $this->authorize('view-any', StoreSetting::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +35,7 @@ class StoreSettingController extends Controller
      */
     public function store(StoreSettingStoreRequest $request)
     {
-        $this->authorize('create', StoreSetting::class);
+        // $this->authorize('create', StoreSetting::class);
 
         $validated = $request->validated();
 
@@ -51,7 +51,7 @@ class StoreSettingController extends Controller
      */
     public function show(Request $request, StoreSetting $storeSetting)
     {
-        $this->authorize('view', $storeSetting);
+        // $this->authorize('view', $storeSetting);
 
         return new StoreSettingResource($storeSetting);
     }
@@ -65,7 +65,7 @@ class StoreSettingController extends Controller
         StoreSettingUpdateRequest $request,
         StoreSetting $storeSetting
     ) {
-        $this->authorize('update', $storeSetting);
+        // $this->authorize('update', $storeSetting);
 
         $validated = $request->validated();
 
@@ -81,7 +81,7 @@ class StoreSettingController extends Controller
      */
     public function destroy(Request $request, StoreSetting $storeSetting)
     {
-        $this->authorize('delete', $storeSetting);
+        // $this->authorize('delete', $storeSetting);
 
         $storeSetting->delete();
 

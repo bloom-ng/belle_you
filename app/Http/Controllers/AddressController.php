@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Address;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddressStoreRequest;
@@ -36,9 +35,7 @@ class AddressController extends Controller
     {
         $this->authorize('create', Address::class);
 
-        $users = User::pluck('name', 'id');
-
-        return view('app.addresses.create', compact('users'));
+        return view('app.addresses.create');
     }
 
     /**
@@ -79,9 +76,7 @@ class AddressController extends Controller
     {
         $this->authorize('update', $address);
 
-        $users = User::pluck('name', 'id');
-
-        return view('app.addresses.edit', compact('address', 'users'));
+        return view('app.addresses.edit', compact('address'));
     }
 
     /**

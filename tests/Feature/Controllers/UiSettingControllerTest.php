@@ -112,7 +112,7 @@ class UiSettingControllerTest extends TestCase
             'key' => $this->faker->text(255),
             'value' => $this->faker->text,
             'page' => $this->faker->text(255),
-            'name' => $this->faker->text(255),
+            'name' => $this->faker->name(),
         ];
 
         $response = $this->put(route('ui-settings.update', $uiSetting), $data);
@@ -135,6 +135,6 @@ class UiSettingControllerTest extends TestCase
 
         $response->assertRedirect(route('ui-settings.index'));
 
-        $this->assertDeleted($uiSetting);
+        $this->assertModelMissing($uiSetting);
     }
 }

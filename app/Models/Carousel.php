@@ -11,7 +11,7 @@ class Carousel extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'image', 'overlay_text', 'status'];
+    protected $fillable = ['image', 'name', 'overlay_text'];
 
     protected $searchableFields = ['*'];
 }

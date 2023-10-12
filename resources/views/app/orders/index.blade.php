@@ -59,7 +59,7 @@
                                     @lang('crud.orders.inputs.payment_ref')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.orders.inputs.transacton_id')
+                                    @lang('crud.orders.inputs.transaction_id')
                                 </th>
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.orders.inputs.state')
@@ -67,14 +67,11 @@
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.orders.inputs.country')
                                 </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.orders.inputs.city')
-                                </th>
                                 <th class="px-4 py-3 text-right">
                                     @lang('crud.orders.inputs.discount')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.orders.inputs.payment_status')
+                                    @lang('crud.orders.inputs.payments_status')
                                 </th>
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.orders.inputs.payment_response')
@@ -92,7 +89,7 @@
                             @forelse($orders as $order)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
-                                    {{ optional($order->user)->name ?? '-' }}
+                                    {{ $order->user_id ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $order->name ?? '-' }}
@@ -101,7 +98,7 @@
                                     {{ $order->payment_ref ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $order->transacton_id ?? '-' }}
+                                    {{ $order->transaction_id ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $order->state ?? '-' }}
@@ -109,14 +106,11 @@
                                 <td class="px-4 py-3 text-left">
                                     {{ $order->country ?? '-' }}
                                 </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $order->city ?? '-' }}
-                                </td>
                                 <td class="px-4 py-3 text-right">
                                     {{ $order->discount ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $order->payment_status ?? '-' }}
+                                    {{ $order->payments_status ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $order->payment_response ?? '-' }}
@@ -192,7 +186,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="13">
+                                <td colspan="12">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -200,7 +194,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="13">
+                                <td colspan="12">
                                     <div class="mt-10 px-4">
                                         {!! $orders->render() !!}
                                     </div>

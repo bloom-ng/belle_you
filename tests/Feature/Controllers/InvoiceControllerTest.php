@@ -75,11 +75,11 @@ class InvoiceControllerTest extends TestCase
             ->make()
             ->toArray();
 
-        $data['line_item'] = json_encode($data['line_item']);
+        $data['line_items'] = json_encode($data['line_items']);
 
         $response = $this->post(route('invoices.store'), $data);
 
-        $data['line_item'] = $this->castToJson($data['line_item']);
+        $data['line_items'] = $this->castToJson($data['line_items']);
 
         $this->assertDatabaseHas('invoices', $data);
 
@@ -126,24 +126,22 @@ class InvoiceControllerTest extends TestCase
         $invoice = Invoice::factory()->create();
 
         $data = [
-            'line_item' => [],
+            'user_id' => $this->faker->randomNumber,
+            'invoice_ref' => $this->faker->text(255),
+            'line_items' => [],
             'status' => $this->faker->word,
-            'billed_to_line_1' => $this->faker->text(255),
-            'billed_to_line_2' => $this->faker->phoneNumber,
-            'account_name' => $this->faker->text(255),
-            'account_number' => $this->faker->randomNumber,
-            'bank_name' => $this->faker->text(255),
-            'service_charge' => $this->faker->randomNumber(1),
-            'vat' => $this->faker->randomNumber(1),
+            'user_name' => $this->faker->text(255),
+            'phone' => $this->faker->phoneNumber,
+            'total' => $this->faker->randomFloat(2, 0, 9999),
         ];
 
-        $data['line_item'] = json_encode($data['line_item']);
+        $data['line_items'] = json_encode($data['line_items']);
 
         $response = $this->put(route('invoices.update', $invoice), $data);
 
         $data['id'] = $invoice->id;
 
-        $data['line_item'] = $this->castToJson($data['line_item']);
+        $data['line_items'] = $this->castToJson($data['line_items']);
 
         $this->assertDatabaseHas('invoices', $data);
 
@@ -161,6 +159,6 @@ class InvoiceControllerTest extends TestCase
 
         $response->assertRedirect(route('invoices.index'));
 
-        $this->assertDeleted($invoice);
+        $this->assertModelMissing($invoice);
     }
 }

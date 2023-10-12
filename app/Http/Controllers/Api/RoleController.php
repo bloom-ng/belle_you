@@ -17,7 +17,7 @@ class RoleController extends Controller {
      */
     public function index(Request $request) 
     {
-        $this->authorize('list', Role::class);
+        // $this->authorize('list', Role::class);
 
         $search = $request->get('search', '');
         $roles = Role::where('name', 'like', "%{$search}%")->paginate();
@@ -31,7 +31,7 @@ class RoleController extends Controller {
      */
     public function store(Request $request) 
     {
-        $this->authorize('create', Role::class);
+        // $this->authorize('create', Role::class);
 
         $validated = $this->validate($request, [
             'name' => 'required|unique:roles|max:32',
@@ -52,7 +52,7 @@ class RoleController extends Controller {
      */
     public function show(Role $role) 
     {
-        $this->authorize('view', Role::class);
+        // $this->authorize('view', Role::class);
 
         return new RoleResource($role);
     }
@@ -64,7 +64,7 @@ class RoleController extends Controller {
      */
     public function update(Request $request, Role $role) 
     {
-        $this->authorize('update', $role);
+        // $this->authorize('update', $role);
 
         $validated = $this->validate($request, [
             'name'=>'required|max:32|unique:roles,name,'.$role->id,
@@ -85,7 +85,7 @@ class RoleController extends Controller {
      */
     public function destroy(Role $role)
     {
-        $this->authorize('delete', $role);
+        // $this->authorize('delete', $role);
 
         $role->delete();
 

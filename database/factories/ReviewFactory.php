@@ -23,11 +23,12 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->randomNumber,
-            'rating' => $this->faker->numberBetween(0, 127),
-            'message' => $this->faker->text,
-            'visibility' => $this->faker->boolean,
+            'user_id' => 2,
             'product_id' => $this->faker->randomNumber,
+            'rating' => $this->faker->numberBetween(0, 127),
+            'title' => $this->faker->sentence(10),
+            'message' => $this->faker->sentence(20),
+            'visibility' => $this->faker->boolean,
         ];
     }
 }

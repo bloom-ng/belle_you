@@ -25,7 +25,6 @@ class CarouselFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'overlay_text' => $this->faker->text,
-            'status' => $this->faker->word,
         ];
     }
 }

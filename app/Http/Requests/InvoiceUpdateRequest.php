@@ -24,15 +24,13 @@ class InvoiceUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'line_item' => ['required', 'max:255', 'json'],
+            'user_id' => ['required', 'max:255'],
+            'invoice_ref' => ['required', 'max:255', 'string'],
+            'line_items' => ['required', 'max:255', 'json'],
             'status' => ['required', 'max:255', 'string'],
-            'billed_to_line_1' => ['required', 'max:255', 'string'],
-            'billed_to_line_2' => ['required', 'max:255', 'string'],
-            'account_name' => ['required', 'max:255', 'string'],
-            'account_number' => ['required', 'max:255'],
-            'bank_name' => ['required', 'max:255', 'string'],
-            'service_charge' => ['required', 'numeric'],
-            'vat' => ['required', 'numeric'],
+            'user_name' => ['required', 'max:255', 'string'],
+            'phone' => ['required', 'max:255', 'string'],
+            'total' => ['required', 'numeric'],
         ];
     }
 }

@@ -108,15 +108,11 @@ class CartControllerTest extends TestCase
     {
         $cart = Cart::factory()->create();
 
-        $user = User::factory()->create();
-
         $data = [
-            'product_id' => $this->faker->randomNumber,
             'user_id' => $this->faker->randomNumber,
-            'session' => $this->faker->ipv4,
+            'product_id' => $this->faker->randomNumber,
             'quantity' => $this->faker->randomNumber,
             'specification' => $this->faker->text,
-            'user_id' => $user->id,
         ];
 
         $response = $this->put(route('carts.update', $cart), $data);
@@ -139,6 +135,6 @@ class CartControllerTest extends TestCase
 
         $response->assertRedirect(route('carts.index'));
 
-        $this->assertDeleted($cart);
+        $this->assertModelMissing($cart);
     }
 }

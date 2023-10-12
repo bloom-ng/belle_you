@@ -23,15 +23,15 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
-            'country' => $this->faker->country,
+            'user_id' => 2,
+            'country' => $this->faker->text(255),
             'state' => $this->faker->state,
             'city' => $this->faker->city,
             'zip_code' => $this->faker->text(255),
             'address_line_1' => $this->faker->text,
             'address_line_2' => $this->faker->text,
             'phone' => $this->faker->phoneNumber,
-            'phone_2' => $this->faker->phoneNumber,
-            'user_id' => \App\Models\User::factory(),
+            'phone_2' => $this->faker->text(255),
         ];
     }
 }

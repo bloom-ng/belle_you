@@ -12,17 +12,11 @@ class Cart extends Model
     use Searchable;
 
     protected $fillable = [
-        'product_id',
         'user_id',
-        'session',
+        'product_id',
         'quantity',
         'specification',
     ];
 
     protected $searchableFields = ['*'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

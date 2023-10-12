@@ -18,7 +18,7 @@ class ReviewController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Review::class);
+        // $this->authorize('view-any', Review::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +35,7 @@ class ReviewController extends Controller
      */
     public function store(ReviewStoreRequest $request)
     {
-        $this->authorize('create', Review::class);
+        // $this->authorize('create', Review::class);
 
         $validated = $request->validated();
 
@@ -51,7 +51,7 @@ class ReviewController extends Controller
      */
     public function show(Request $request, Review $review)
     {
-        $this->authorize('view', $review);
+        // $this->authorize('view', $review);
 
         return new ReviewResource($review);
     }
@@ -63,7 +63,7 @@ class ReviewController extends Controller
      */
     public function update(ReviewUpdateRequest $request, Review $review)
     {
-        $this->authorize('update', $review);
+        // $this->authorize('update', $review);
 
         $validated = $request->validated();
 
@@ -79,7 +79,7 @@ class ReviewController extends Controller
      */
     public function destroy(Request $request, Review $review)
     {
-        $this->authorize('delete', $review);
+        // $this->authorize('delete', $review);
 
         $review->delete();
 

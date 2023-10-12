@@ -68,6 +68,12 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
+                            @lang('crud.products.inputs.shipping_fee')
+                        </h5>
+                        <span>{{ $product->shipping_fee ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
                             @lang('crud.products.inputs.sale_price')
                         </h5>
                         <span>{{ $product->sale_price ?? '-' }}</span>
@@ -83,12 +89,6 @@
                             @lang('crud.products.inputs.sale_end')
                         </h5>
                         <span>{{ $product->sale_end ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.products.inputs.shipping_fee')
-                        </h5>
-                        <span>{{ $product->shipping_fee ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">

@@ -11,7 +11,7 @@ class Banner extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'position', 'image'];
+    protected $fillable = ['image', 'name', 'position'];
 
     protected $searchableFields = ['*'];
 }

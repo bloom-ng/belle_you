@@ -33,39 +33,6 @@
         ></x-inputs.password>
     </x-inputs.group>
 
-    <x-inputs.group class="w-full">
-        <x-inputs.number
-            name="phone_number"
-            label="Phone Number"
-            :value="old('phone_number', ($editing ? $user->phone_number : ''))"
-            max="255"
-            placeholder="Phone Number"
-            required
-        ></x-inputs.number>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="role"
-            label="Role"
-            :value="old('role', ($editing ? $user->role : ''))"
-            maxlength="255"
-            placeholder="Role"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="default_address_id"
-            label="Default Address Id"
-            :value="old('default_address_id', ($editing ? $user->default_address_id : ''))"
-            maxlength="255"
-            placeholder="Default Address Id"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
     <div class="px-4 my-4">
         <h4 class="font-bold text-lg text-gray-700">
             Assign @lang('crud.roles.name')

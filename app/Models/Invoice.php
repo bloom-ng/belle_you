@@ -12,20 +12,18 @@ class Invoice extends Model
     use Searchable;
 
     protected $fillable = [
-        'line_item',
+        'user_id',
+        'invoice_ref',
+        'line_items',
         'status',
-        'billed_to_line_1',
-        'billed_to_line_2',
-        'account_name',
-        'account_number',
-        'bank_name',
-        'service_charge',
-        'vat',
+        'user_name',
+        'phone',
+        'total',
     ];
 
     protected $searchableFields = ['*'];
 
     protected $casts = [
-        'line_item' => 'array',
+        'line_items' => 'array',
     ];
 }

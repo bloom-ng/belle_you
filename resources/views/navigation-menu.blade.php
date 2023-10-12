@@ -68,6 +68,11 @@
                         Products
                         </x-dropdown-link>
                         @endcan
+                        @can('view-any', App\Models\ProductCategory::class)
+                        <x-dropdown-link href="{{ route('product-categories.index') }}">
+                        Product Categories
+                        </x-dropdown-link>
+                        @endcan
                         @can('view-any', App\Models\Review::class)
                         <x-dropdown-link href="{{ route('reviews.index') }}">
                         Reviews
@@ -86,11 +91,6 @@
                         @can('view-any', App\Models\User::class)
                         <x-dropdown-link href="{{ route('users.index') }}">
                         Users
-                        </x-dropdown-link>
-                        @endcan
-                        @can('view-any', App\Models\Quote::class)
-                        <x-dropdown-link href="{{ route('quotes.index') }}">
-                        Quotes
                         </x-dropdown-link>
                         @endcan
                 </x-nav-dropdown>
@@ -285,6 +285,11 @@
                 Products
                 </x-jet-responsive-nav-link>
                 @endcan
+                @can('view-any', App\Models\ProductCategory::class)
+                <x-jet-responsive-nav-link href="{{ route('product-categories.index') }}">
+                Product Categories
+                </x-jet-responsive-nav-link>
+                @endcan
                 @can('view-any', App\Models\Review::class)
                 <x-jet-responsive-nav-link href="{{ route('reviews.index') }}">
                 Reviews
@@ -303,11 +308,6 @@
                 @can('view-any', App\Models\User::class)
                 <x-jet-responsive-nav-link href="{{ route('users.index') }}">
                 Users
-                </x-jet-responsive-nav-link>
-                @endcan
-                @can('view-any', App\Models\Quote::class)
-                <x-jet-responsive-nav-link href="{{ route('quotes.index') }}">
-                Quotes
                 </x-jet-responsive-nav-link>
                 @endcan
 

@@ -1,68 +1,67 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        
+        <title>belle_you</title>
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        
+        <!-- Styles -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+        
+        <!-- Icons -->
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href=" {{ asset('css/app.css') }} ">
+        <script src=" {{asset(js/app.js)}} "></script>
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        
+        @livewireStyles
+    </head>
+    <body class="font-sans antialiased">
+        <x-jet-banner />
 
-    <title>belle_you</title>
+        <div class="min-h-screen bg-gray-100">
+            @livewire('navigation-menu')
+        
+            <!-- Page Heading -->
+            @if (isset($header))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
+        
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+        </div>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
-
-    <!-- Icons -->
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <link href="/css/app.css" rel="stylesheet">
-
-    <!-- Scripts -->
-    {{-- @mix(['resources/css/app.css', 'resources/js/app.js']) --}}
-
-
-    @livewireStyles
-</head>
-
-<body class="font-sans antialiased">
-    <x-jet-banner />
-
-    <div class="min-h-screen bg-gray-100">
-        @livewire('navigation-menu')
-
-        <!-- Page Heading -->
-        @if (isset($header))
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-        @endif
-
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
-    </div>
-
-    @stack('modals')
-
-    @livewireScripts
-
-    @stack('scripts')
-
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-
-    @if (session()->has('success'))
-    <script>
-        var notyf = new Notyf({dismissible: true})
+        @stack('modals')
+        
+        @livewireScripts
+        
+        @stack('scripts')
+        
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+        
+        @if (session()->has('success')) 
+        <script>
+            var notyf = new Notyf({dismissible: true})
             notyf.success('{{ session('success') }}')
-    </script>
-    @endif
-
-    <script>
-        /* Simple Alpine Image Viewer */
+        </script> 
+        @endif
+        
+        <script>
+            /* Simple Alpine Image Viewer */
             document.addEventListener('alpine:init', () => {
                 Alpine.data('imageViewer', (src = '') => {
                     return {
@@ -88,7 +87,6 @@
                     }
                 })
             })
-    </script>
-</body>
-
+        </script>
+    </body>
 </html>
