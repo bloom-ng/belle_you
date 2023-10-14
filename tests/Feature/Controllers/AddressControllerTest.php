@@ -108,6 +108,8 @@ class AddressControllerTest extends TestCase
     {
         $address = Address::factory()->create();
 
+        $user = User::factory()->create();
+
         $data = [
             'user_id' => $this->faker->randomNumber,
             'country' => $this->faker->text(255),
@@ -118,6 +120,7 @@ class AddressControllerTest extends TestCase
             'address_line_2' => $this->faker->text,
             'phone' => $this->faker->phoneNumber,
             'phone_2' => $this->faker->text(255),
+            'user_id' => $user->id,
         ];
 
         $response = $this->put(route('addresses.update', $address), $data);

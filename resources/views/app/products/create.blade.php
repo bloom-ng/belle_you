@@ -17,7 +17,6 @@
                 <x-form
                     method="POST"
                     action="{{ route('products.store') }}"
-                    has-files
                     class="mt-4"
                 >
                     @include('app.products.form-inputs')

@@ -11,7 +11,19 @@ class Quote extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'contact_info', 'notes', 'product_id'];
+    protected $fillable = [
+        'product_id',
+        'phone',
+        'email',
+        'address',
+        'specification',
+        'status',
+    ];
 
     protected $searchableFields = ['*'];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

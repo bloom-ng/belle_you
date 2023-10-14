@@ -13,13 +13,12 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
-        <x-inputs.number
-            name="parent_id"
-            label="Parent Id"
-            :value="old('parent_id', ($editing ? $category->parent_id : ''))"
-            max="255"
-            placeholder="Parent Id"
-            required
-        ></x-inputs.number>
+        <x-inputs.select name="parent_id" label="Category">
+            @php $selected = old('parent_id', ($editing ? $category->parent_id : '')) @endphp
+            <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Category</option>
+            @foreach($categories as $value => $label)
+            <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+            @endforeach
+        </x-inputs.select>
     </x-inputs.group>
 </div>

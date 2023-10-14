@@ -5,6 +5,8 @@ namespace Tests\Feature\Controllers;
 use App\Models\User;
 use App\Models\Quote;
 
+use App\Models\Product;
+
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -108,11 +110,16 @@ class QuoteControllerTest extends TestCase
     {
         $quote = Quote::factory()->create();
 
+        $product = Product::factory()->create();
+
         $data = [
-            'name' => $this->faker->name(),
-            'contact_info' => $this->faker->text(255),
-            'notes' => $this->faker->text,
             'product_id' => $this->faker->randomNumber,
+            'phone' => $this->faker->phoneNumber,
+            'email' => $this->faker->email,
+            'address' => $this->faker->address,
+            'specification' => $this->faker->text,
+            'status' => 'pending',
+            'product_id' => $product->id,
         ];
 
         $response = $this->put(route('quotes.update', $quote), $data);
@@ -135,6 +142,6 @@ class QuoteControllerTest extends TestCase
 
         $response->assertRedirect(route('quotes.index'));
 
-        $this->assertDeleted($quote);
+        $this->assertModelMissing($quote);
     }
 }

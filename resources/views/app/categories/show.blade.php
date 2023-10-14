@@ -25,7 +25,10 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.categories.inputs.parent_id')
                         </h5>
-                        <span>{{ $category->parent_id ?? '-' }}</span>
+                        <span
+                            >{{ optional($category->category)->name ?? '-'
+                            }}</span
+                        >
                     </div>
                 </div>
 

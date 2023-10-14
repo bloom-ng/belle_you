@@ -24,7 +24,11 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'parent_id' => $this->faker->randomNumber(0),
+            'parent_id' => function () {
+                return \App\Models\Category::factory()->create([
+                    'parent_id' => null,
+                ])->id;
+            },
         ];
     }
 }

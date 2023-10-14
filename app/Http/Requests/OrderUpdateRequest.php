@@ -24,16 +24,14 @@ class OrderUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', 'max:255'],
+            'user_id' => ['required', 'exists:users,id'],
             'name' => ['required', 'max:255', 'string'],
             'payment_ref' => ['required', 'max:255', 'string'],
-            'transaction_id' => ['required', 'max:255', 'string'],
             'state' => ['required', 'max:255', 'string'],
             'country' => ['required', 'max:255', 'string'],
             'discount' => ['required', 'numeric'],
             'payments_status' => ['required', 'in:successful,pending,failed'],
             'payment_response' => ['required', 'max:255', 'string'],
-            'order_status' => ['required', 'max:255'],
             'shipping_total' => ['required', 'numeric'],
         ];
     }

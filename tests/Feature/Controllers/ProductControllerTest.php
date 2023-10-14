@@ -5,6 +5,9 @@ namespace Tests\Feature\Controllers;
 use App\Models\User;
 use App\Models\Product;
 
+use App\Models\Cart;
+use App\Models\OrderItem;
+
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -108,10 +111,12 @@ class ProductControllerTest extends TestCase
     {
         $product = Product::factory()->create();
 
+        $cart = Cart::factory()->create();
+        $orderItem = OrderItem::factory()->create();
+
         $data = [
             'name' => $this->faker->name(),
             'quantity' => $this->faker->randomNumber,
-            'image_2' => $this->faker->text(255),
             'price' => $this->faker->randomFloat(2, 0, 9999),
             'description' => $this->faker->text,
             'type' => 'ready_made',
@@ -121,6 +126,8 @@ class ProductControllerTest extends TestCase
             'sale_start' => $this->faker->date,
             'sale_end' => $this->faker->date,
             'slug' => $this->faker->slug,
+            'id' => $cart->id,
+            'id' => $orderItem->id,
         ];
 
         $response = $this->put(route('products.update', $product), $data);

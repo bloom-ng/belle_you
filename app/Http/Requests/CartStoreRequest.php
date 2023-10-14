@@ -24,10 +24,9 @@ class CartStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', 'max:255'],
+            'user_id' => ['nullable', 'exists:users,id'],
             'product_id' => ['required', 'max:255'],
             'quantity' => ['required', 'numeric'],
-            'specification' => ['required', 'max:255', 'string'],
         ];
     }
 }

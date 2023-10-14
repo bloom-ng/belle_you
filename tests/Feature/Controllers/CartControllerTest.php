@@ -64,6 +64,8 @@ class CartControllerTest extends TestCase
 
         $response = $this->post(route('carts.store'), $data);
 
+        unset($data['ip']);
+
         $this->assertDatabaseHas('carts', $data);
 
         $cart = Cart::latest('id')->first();
@@ -108,14 +110,19 @@ class CartControllerTest extends TestCase
     {
         $cart = Cart::factory()->create();
 
+        $user = User::factory()->create();
+
         $data = [
             'user_id' => $this->faker->randomNumber,
             'product_id' => $this->faker->randomNumber,
             'quantity' => $this->faker->randomNumber,
-            'specification' => $this->faker->text,
+            'ip' => $this->faker->ipv4,
+            'user_id' => $user->id,
         ];
 
         $response = $this->put(route('carts.update', $cart), $data);
+
+        unset($data['ip']);
 
         $data['id'] = $cart->id;
 

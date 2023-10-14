@@ -19,6 +19,13 @@ return new class extends Migration {
                 ->on('users')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
+
+            $table
+                ->foreign('product_id')
+                ->references('id')
+                ->on('products')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
         });
     }
 
@@ -31,6 +38,7 @@ return new class extends Migration {
     {
         Schema::table('reviews', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
+            $table->dropForeign(['product_id']);
         });
     }
 };

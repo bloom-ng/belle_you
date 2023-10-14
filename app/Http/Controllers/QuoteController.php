@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quote;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\QuoteStoreRequest;
 use App\Http\Requests\QuoteUpdateRequest;
@@ -15,7 +16,7 @@ class QuoteController extends Controller
      */
     public function index(Request $request)
     {
-        // $this->authorize('view-any', Quote::class);
+        $this->authorize('view-any', Quote::class);
 
         $search = $request->get('search', '');
 
@@ -33,9 +34,11 @@ class QuoteController extends Controller
      */
     public function create(Request $request)
     {
-        // $this->authorize('create', Quote::class);
+        $this->authorize('create', Quote::class);
 
-        return view('app.quotes.create');
+        $products = Product::pluck('name', 'id');
+
+        return view('app.quotes.create', compact('products'));
     }
 
     /**
@@ -44,7 +47,7 @@ class QuoteController extends Controller
      */
     public function store(QuoteStoreRequest $request)
     {
-        // $this->authorize('create', Quote::class);
+        $this->authorize('create', Quote::class);
 
         $validated = $request->validated();
 
@@ -62,7 +65,7 @@ class QuoteController extends Controller
      */
     public function show(Request $request, Quote $quote)
     {
-        // $this->authorize('view', $quote);
+        $this->authorize('view', $quote);
 
         return view('app.quotes.show', compact('quote'));
     }
@@ -74,9 +77,11 @@ class QuoteController extends Controller
      */
     public function edit(Request $request, Quote $quote)
     {
-        // $this->authorize('update', $quote);
+        $this->authorize('update', $quote);
 
-        return view('app.quotes.edit', compact('quote'));
+        $products = Product::pluck('name', 'id');
+
+        return view('app.quotes.edit', compact('quote', 'products'));
     }
 
     /**
@@ -86,7 +91,7 @@ class QuoteController extends Controller
      */
     public function update(QuoteUpdateRequest $request, Quote $quote)
     {
-        // $this->authorize('update', $quote);
+        $this->authorize('update', $quote);
 
         $validated = $request->validated();
 
@@ -104,7 +109,7 @@ class QuoteController extends Controller
      */
     public function destroy(Request $request, Quote $quote)
     {
-        // $this->authorize('delete', $quote);
+        $this->authorize('delete', $quote);
 
         $quote->delete();
 

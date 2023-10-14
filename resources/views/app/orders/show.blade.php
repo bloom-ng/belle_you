@@ -19,7 +19,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.orders.inputs.user_id')
                         </h5>
-                        <span>{{ $order->user_id ?? '-' }}</span>
+                        <span>{{ optional($order->user)->name ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
@@ -32,12 +32,6 @@
                             @lang('crud.orders.inputs.payment_ref')
                         </h5>
                         <span>{{ $order->payment_ref ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.orders.inputs.transaction_id')
-                        </h5>
-                        <span>{{ $order->transaction_id ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
@@ -68,12 +62,6 @@
                             @lang('crud.orders.inputs.payment_response')
                         </h5>
                         <span>{{ $order->payment_response ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.orders.inputs.order_status')
-                        </h5>
-                        <span>{{ $order->order_status ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">

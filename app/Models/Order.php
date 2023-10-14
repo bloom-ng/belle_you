@@ -13,17 +13,32 @@ class Order extends Model
 
     protected $fillable = [
         'user_id',
+        'transaction_id',
         'name',
         'payment_ref',
-        'transaction_id',
         'state',
         'country',
         'discount',
         'payments_status',
         'payment_response',
-        'order_status',
         'shipping_total',
+        'status',
     ];
 
     protected $searchableFields = ['*'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function transaction()
+    {
+        return $this->hasOne(Transaction::class, 'id', 'transaction_id');
+    }
 }

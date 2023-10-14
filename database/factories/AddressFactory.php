@@ -23,7 +23,6 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => 2,
             'country' => $this->faker->text(255),
             'state' => $this->faker->state,
             'city' => $this->faker->city,
@@ -32,6 +31,7 @@ class AddressFactory extends Factory
             'address_line_2' => $this->faker->text,
             'phone' => $this->faker->phoneNumber,
             'phone_2' => $this->faker->text(255),
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }

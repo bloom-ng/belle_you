@@ -19,7 +19,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.carts.inputs.user_id')
                         </h5>
-                        <span>{{ $cart->user_id ?? '-' }}</span>
+                        <span>{{ optional($cart->user)->name ?? '-' }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
@@ -32,12 +32,6 @@
                             @lang('crud.carts.inputs.quantity')
                         </h5>
                         <span>{{ $cart->quantity ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.carts.inputs.specification')
-                        </h5>
-                        <span>{{ $cart->specification ?? '-' }}</span>
                     </div>
                 </div>
 

@@ -23,17 +23,17 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => 2,
+            'transaction_id' => $this->faker->randomNumber,
             'name' => $this->faker->name(),
             'payment_ref' => $this->faker->text(255),
-            'transaction_id' => $this->faker->text(255),
             'state' => $this->faker->state,
             'country' => $this->faker->country,
             'discount' => $this->faker->randomFloat(2, 0, 9999),
             'payments_status' => 'successful',
             'payment_response' => $this->faker->text,
-            'order_status' => $this->faker->numberBetween(0, 127),
             'shipping_total' => $this->faker->randomNumber(1),
+            'status' => 'completed',
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }

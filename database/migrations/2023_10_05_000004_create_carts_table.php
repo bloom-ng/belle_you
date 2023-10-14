@@ -14,10 +14,10 @@ return new class extends Migration {
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
             $table->foreignId('product_id');
             $table->integer('quantity');
-            $table->text('specification');
+            $table->ipAddress('ip')->nullable();
 
             $table->timestamps();
         });

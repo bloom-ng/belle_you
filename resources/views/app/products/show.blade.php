@@ -29,21 +29,6 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.products.inputs.image')
-                        </h5>
-                        <x-partials.thumbnail
-                            src="{{ $product->image ? \Storage::url($product->image) : '' }}"
-                            size="150"
-                        />
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.products.inputs.image_2')
-                        </h5>
-                        <span>{{ $product->image_2 ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
                             @lang('crud.products.inputs.price')
                         </h5>
                         <span>{{ $product->price ?? '-' }}</span>

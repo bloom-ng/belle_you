@@ -16,8 +16,6 @@
         <!-- Icons -->
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
         
-        <link rel="stylesheet" href=" {{ asset('css/app.css') }} ">
-        <script src=" {{asset('js/app.js')}} "></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 

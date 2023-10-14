@@ -64,8 +64,9 @@
                                 <td class="px-4 py-3 text-left">
                                     {{ $category->name ?? '-' }}
                                 </td>
-                                <td class="px-4 py-3 text-right">
-                                    {{ $category->parent_id ?? '-' }}
+                                <td class="px-4 py-3 text-left">
+                                    {{ optional($category->category)->name ??
+                                    '-' }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"

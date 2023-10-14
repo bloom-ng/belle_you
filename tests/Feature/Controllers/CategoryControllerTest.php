@@ -108,9 +108,12 @@ class CategoryControllerTest extends TestCase
     {
         $category = Category::factory()->create();
 
+        $category = Category::factory()->create();
+
         $data = [
+            'parent_id' => $this->faker->randomNumber,
             'name' => $this->faker->name(),
-            'parent_id' => $this->faker->randomNumber(0),
+            'parent_id' => $category->id,
         ];
 
         $response = $this->put(route('categories.update', $category), $data);

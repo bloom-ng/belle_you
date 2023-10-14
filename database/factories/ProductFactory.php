@@ -25,8 +25,6 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'quantity' => $this->faker->randomNumber,
-            'image' => $this->faker->text(255),
-            'image_2' => $this->faker->text(255),
             'price' => $this->faker->randomFloat(2, 0, 9999),
             'description' => $this->faker->text,
             'type' => 'ready_made',
@@ -36,6 +34,8 @@ class ProductFactory extends Factory
             'sale_start' => $this->faker->date,
             'sale_end' => $this->faker->date,
             'slug' => $this->faker->slug,
+            'id' => \App\Models\Cart::factory(),
+            'id' => \App\Models\OrderItem::factory(),
         ];
     }
 }

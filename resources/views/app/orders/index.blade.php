@@ -59,9 +59,6 @@
                                     @lang('crud.orders.inputs.payment_ref')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.orders.inputs.transaction_id')
-                                </th>
-                                <th class="px-4 py-3 text-left">
                                     @lang('crud.orders.inputs.state')
                                 </th>
                                 <th class="px-4 py-3 text-left">
@@ -76,9 +73,6 @@
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.orders.inputs.payment_response')
                                 </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.orders.inputs.order_status')
-                                </th>
                                 <th class="px-4 py-3 text-right">
                                     @lang('crud.orders.inputs.shipping_total')
                                 </th>
@@ -89,16 +83,13 @@
                             @forelse($orders as $order)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
-                                    {{ $order->user_id ?? '-' }}
+                                    {{ optional($order->user)->name ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $order->name ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $order->payment_ref ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $order->transaction_id ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $order->state ?? '-' }}
@@ -114,9 +105,6 @@
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $order->payment_response ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $order->order_status ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-right">
                                     {{ $order->shipping_total ?? '-' }}
@@ -186,7 +174,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="12">
+                                <td colspan="10">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -194,7 +182,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="12">
+                                <td colspan="10">
                                     <div class="mt-10 px-4">
                                         {!! $orders->render() !!}
                                     </div>

@@ -17,27 +17,41 @@
                 <div class="mt-4 px-4">
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.quotes.inputs.name')
-                        </h5>
-                        <span>{{ $quote->name ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.quotes.inputs.contact_info')
-                        </h5>
-                        <span>{{ $quote->contact_info ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
-                            @lang('crud.quotes.inputs.notes')
-                        </h5>
-                        <span>{{ $quote->notes ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
                             @lang('crud.quotes.inputs.product_id')
                         </h5>
-                        <span>{{ $quote->product_id ?? '-' }}</span>
+                        <span
+                            >{{ optional($quote->product)->name ?? '-' }}</span
+                        >
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.quotes.inputs.phone')
+                        </h5>
+                        <span>{{ $quote->phone ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.quotes.inputs.email')
+                        </h5>
+                        <span>{{ $quote->email ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.quotes.inputs.address')
+                        </h5>
+                        <span>{{ $quote->address ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.quotes.inputs.specification')
+                        </h5>
+                        <span>{{ $quote->specification ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.quotes.inputs.status')
+                        </h5>
+                        <span>{{ $quote->status ?? '-' }}</span>
                     </div>
                 </div>
 

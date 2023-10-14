@@ -5,8 +5,9 @@ namespace Tests\Feature\Api;
 use App\Models\User;
 use App\Models\Quote;
 
+use App\Models\Product;
+
 use Tests\TestCase;
-use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -17,10 +18,6 @@ class QuoteTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-
-        $user = User::factory()->create(['email' => 'admin@admin.com']);
-
-        Sanctum::actingAs($user, [], 'web');
 
         $this->seed(\Database\Seeders\PermissionsSeeder::class);
 
@@ -38,7 +35,7 @@ class QuoteTest extends TestCase
 
         $response = $this->getJson(route('api.quotes.index'));
 
-        $response->assertOk()->assertSee($quotes[0]->name);
+        $response->assertOk()->assertSee($quotes[0]->phone);
     }
 
     /**
@@ -64,11 +61,16 @@ class QuoteTest extends TestCase
     {
         $quote = Quote::factory()->create();
 
+        $product = Product::factory()->create();
+
         $data = [
-            'name' => $this->faker->name(),
-            'contact_info' => $this->faker->text(255),
-            'notes' => $this->faker->text,
             'product_id' => $this->faker->randomNumber,
+            'phone' => $this->faker->phoneNumber,
+            'email' => $this->faker->email,
+            'address' => $this->faker->address,
+            'specification' => $this->faker->text,
+            'status' => 'pending',
+            'product_id' => $product->id,
         ];
 
         $response = $this->putJson(route('api.quotes.update', $quote), $data);
@@ -89,7 +91,7 @@ class QuoteTest extends TestCase
 
         $response = $this->deleteJson(route('api.quotes.destroy', $quote));
 
-        $this->assertDeleted($quote);
+        $this->assertModelMissing($quote);
 
         $response->assertNoContent();
     }

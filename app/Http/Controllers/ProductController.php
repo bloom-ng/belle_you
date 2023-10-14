@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 
@@ -48,9 +47,6 @@ class ProductController extends Controller
         $this->authorize('create', Product::class);
 
         $validated = $request->validated();
-        if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('public');
-        }
 
         $product = Product::create($validated);
 
@@ -93,13 +89,6 @@ class ProductController extends Controller
         $this->authorize('update', $product);
 
         $validated = $request->validated();
-        if ($request->hasFile('image')) {
-            if ($product->image) {
-                Storage::delete($product->image);
-            }
-
-            $validated['image'] = $request->file('image')->store('public');
-        }
 
         $product->update($validated);
 
@@ -116,10 +105,6 @@ class ProductController extends Controller
     public function destroy(Request $request, Product $product)
     {
         $this->authorize('delete', $product);
-
-        if ($product->image) {
-            Storage::delete($product->image);
-        }
 
         $product->delete();
 

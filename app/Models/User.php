@@ -22,7 +22,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use TwoFactorAuthenticatable;
 
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'is_distributor'];
 
     protected $searchableFields = ['*'];
 
@@ -36,7 +36,43 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'two_factor_confirmed_at' => 'datetime',
+        'is_distributor' => 'boolean',
     ];
+
+    public function userStoreCredits()
+    {
+        return $this->hasMany(UserStoreCredit::class);
+    }
+
+    public function blogPosts()
+    {
+        return $this->hasMany(BlogPost::class, 'author');
+    }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class);
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 
     public function isSuperAdmin()
     {

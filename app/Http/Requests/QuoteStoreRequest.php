@@ -24,10 +24,12 @@ class QuoteStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:255', 'string'],
-            'contact_info' => ['required', 'max:255', 'string'],
-            'notes' => ['required', 'max:255', 'string'],
-            'product_id' => ['required', 'max:255'],
+            'product_id' => ['required', 'exists:products,id'],
+            'phone' => ['nullable', 'max:255', 'string'],
+            'email' => ['nullable', 'email'],
+            'address' => ['nullable', 'max:255', 'string'],
+            'specification' => ['required', 'max:255', 'string'],
+            'status' => ['required', 'in:pending,processing,completed'],
         ];
     }
 }

@@ -11,12 +11,17 @@ class Cart extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = [
-        'user_id',
-        'product_id',
-        'quantity',
-        'specification',
-    ];
+    protected $fillable = ['user_id', 'product_id', 'quantity', 'ip'];
 
     protected $searchableFields = ['*'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'id', 'product_id');
+    }
 }

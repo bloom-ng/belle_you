@@ -64,6 +64,9 @@ class OrderControllerTest extends TestCase
 
         $response = $this->post(route('orders.store'), $data);
 
+        unset($data['transaction_id']);
+        unset($data['status']);
+
         $this->assertDatabaseHas('orders', $data);
 
         $order = Order::latest('id')->first();
@@ -108,21 +111,27 @@ class OrderControllerTest extends TestCase
     {
         $order = Order::factory()->create();
 
+        $user = User::factory()->create();
+
         $data = [
             'user_id' => $this->faker->randomNumber,
+            'transaction_id' => $this->faker->randomNumber,
             'name' => $this->faker->name(),
             'payment_ref' => $this->faker->text(255),
-            'transaction_id' => $this->faker->text(255),
             'state' => $this->faker->state,
             'country' => $this->faker->country,
             'discount' => $this->faker->randomFloat(2, 0, 9999),
             'payments_status' => 'successful',
             'payment_response' => $this->faker->text,
-            'order_status' => $this->faker->numberBetween(0, 127),
             'shipping_total' => $this->faker->randomNumber(1),
+            'status' => 'completed',
+            'user_id' => $user->id,
         ];
 
         $response = $this->put(route('orders.update', $order), $data);
+
+        unset($data['transaction_id']);
+        unset($data['status']);
 
         $data['id'] = $order->id;
 

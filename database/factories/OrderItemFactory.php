@@ -23,10 +23,11 @@ class OrderItemFactory extends Factory
     public function definition()
     {
         return [
-            'order_id' => $this->faker->randomNumber,
             'product_id' => $this->faker->randomNumber,
             'quantity' => $this->faker->randomNumber,
             'price' => $this->faker->randomFloat(2, 0, 9999),
+            'status' => 'delivered',
+            'order_id' => \App\Models\Order::factory(),
         ];
     }
 }

@@ -24,4 +24,9 @@ class Address extends Model
     ];
 
     protected $searchableFields = ['*'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

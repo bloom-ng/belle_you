@@ -78,10 +78,9 @@ return [
         'edit_title' => 'Edit Cart',
         'show_title' => 'Show Cart',
         'inputs' => [
-            'user_id' => 'User Id',
+            'user_id' => 'User',
             'product_id' => 'Product Id',
             'quantity' => 'Quantity',
-            'specification' => 'Specification',
         ],
     ],
 
@@ -94,7 +93,7 @@ return [
         'show_title' => 'Show Category',
         'inputs' => [
             'name' => 'Name',
-            'parent_id' => 'Parent Id',
+            'parent_id' => 'Category',
         ],
     ],
 
@@ -140,16 +139,14 @@ return [
         'edit_title' => 'Edit Order',
         'show_title' => 'Show Order',
         'inputs' => [
-            'user_id' => 'User Id',
+            'user_id' => 'User',
             'name' => 'Name',
             'payment_ref' => 'Payment Ref',
-            'transaction_id' => 'Transaction Id',
             'state' => 'State',
             'country' => 'Country',
             'discount' => 'Discount',
             'payments_status' => 'Payments Status',
             'payment_response' => 'Payment Response',
-            'order_status' => 'Order Status',
             'shipping_total' => 'Shipping Total',
         ],
     ],
@@ -179,8 +176,6 @@ return [
         'inputs' => [
             'name' => 'Name',
             'quantity' => 'Quantity',
-            'image' => 'Image',
-            'image_2' => 'Image 2',
             'price' => 'Price',
             'description' => 'Description',
             'type' => 'Type',
@@ -262,6 +257,150 @@ return [
             'name' => 'Name',
             'email' => 'Email',
             'password' => 'Password',
+        ],
+    ],
+
+    'blog_categories' => [
+        'name' => 'Blog Categories',
+        'index_title' => 'BlogCategories List',
+        'new_title' => 'New Blog category',
+        'create_title' => 'Create BlogCategory',
+        'edit_title' => 'Edit BlogCategory',
+        'show_title' => 'Show BlogCategory',
+        'inputs' => [
+            'name' => 'Name',
+        ],
+    ],
+
+    'blog_posts' => [
+        'name' => 'Blog Posts',
+        'index_title' => 'BlogPosts List',
+        'new_title' => 'New Blog post',
+        'create_title' => 'Create BlogPost',
+        'edit_title' => 'Edit BlogPost',
+        'show_title' => 'Show BlogPost',
+        'inputs' => [
+            'title' => 'Title',
+            'author' => 'User',
+            'description' => 'Description',
+            'content' => 'Content',
+            'featured_image' => 'Featured Image',
+            'is_featured' => 'Is Featured',
+            'meta' => 'Meta',
+            'blog_category_id' => 'Blog Category',
+        ],
+    ],
+
+    'blog_post_tags' => [
+        'name' => 'Blog Post Tags',
+        'index_title' => 'BlogPostTags List',
+        'new_title' => 'New Blog post tag',
+        'create_title' => 'Create BlogPostTag',
+        'edit_title' => 'Edit BlogPostTag',
+        'show_title' => 'Show BlogPostTag',
+        'inputs' => [
+            'blog_post_id' => 'Blog Post Id',
+            'blog_tag_id' => 'Blog Tag Id',
+        ],
+    ],
+
+    'blog_tags' => [
+        'name' => 'Blog Tags',
+        'index_title' => 'BlogTags List',
+        'new_title' => 'New Blog tag',
+        'create_title' => 'Create BlogTag',
+        'edit_title' => 'Edit BlogTag',
+        'show_title' => 'Show BlogTag',
+        'inputs' => [
+            'name' => 'Name',
+        ],
+    ],
+
+    'contacts' => [
+        'name' => 'Contacts',
+        'index_title' => 'Contacts List',
+        'new_title' => 'New Contact',
+        'create_title' => 'Create Contact',
+        'edit_title' => 'Edit Contact',
+        'show_title' => 'Show Contact',
+        'inputs' => [
+            'name' => 'Name',
+            'email' => 'Email',
+            'phone' => 'Phone',
+            'message' => 'Message',
+        ],
+    ],
+
+    'network_teams' => [
+        'name' => 'Network Teams',
+        'index_title' => 'NetworkTeams List',
+        'new_title' => 'New Network team',
+        'create_title' => 'Create NetworkTeam',
+        'edit_title' => 'Edit NetworkTeam',
+        'show_title' => 'Show NetworkTeam',
+        'inputs' => [
+            'user_id' => 'User Id',
+            'parent' => 'Parent',
+        ],
+    ],
+
+    'product_images' => [
+        'name' => 'Product Images',
+        'index_title' => 'ProductImages List',
+        'new_title' => 'New Product image',
+        'create_title' => 'Create ProductImage',
+        'edit_title' => 'Edit ProductImage',
+        'show_title' => 'Show ProductImage',
+        'inputs' => [
+            'product_id' => 'Product',
+            'image' => 'Image',
+            'status' => 'Status',
+        ],
+    ],
+
+    'quotes' => [
+        'name' => 'Quotes',
+        'index_title' => 'Quotes List',
+        'new_title' => 'New Quote',
+        'create_title' => 'Create Quote',
+        'edit_title' => 'Edit Quote',
+        'show_title' => 'Show Quote',
+        'inputs' => [
+            'product_id' => 'Product',
+            'phone' => 'Phone',
+            'email' => 'Email',
+            'address' => 'Address',
+            'specification' => 'Specification',
+            'status' => 'Status',
+        ],
+    ],
+
+    'transactions' => [
+        'name' => 'Transactions',
+        'index_title' => 'Transactions List',
+        'new_title' => 'New Transaction',
+        'create_title' => 'Create Transaction',
+        'edit_title' => 'Edit Transaction',
+        'show_title' => 'Show Transaction',
+        'inputs' => [
+            'id' => 'Order',
+            'ref' => 'Ref',
+            'amount' => 'Amount',
+            'type' => 'Type',
+            'status' => 'Status',
+        ],
+    ],
+
+    'user_store_credits' => [
+        'name' => 'User Store Credits',
+        'index_title' => 'UserStoreCredits List',
+        'new_title' => 'New User store credit',
+        'create_title' => 'Create UserStoreCredit',
+        'edit_title' => 'Edit UserStoreCredit',
+        'show_title' => 'Show UserStoreCredit',
+        'inputs' => [
+            'user_id' => 'User',
+            'credit' => 'Credit',
         ],
     ],
 

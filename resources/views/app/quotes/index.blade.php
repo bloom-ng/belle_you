@@ -50,16 +50,22 @@
                         <thead class="text-gray-700">
                             <tr>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.quotes.inputs.name')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.quotes.inputs.contact_info')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.quotes.inputs.notes')
-                                </th>
-                                <th class="px-4 py-3 text-left">
                                     @lang('crud.quotes.inputs.product_id')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.quotes.inputs.phone')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.quotes.inputs.email')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.quotes.inputs.address')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.quotes.inputs.specification')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.quotes.inputs.status')
                                 </th>
                                 <th></th>
                             </tr>
@@ -68,16 +74,22 @@
                             @forelse($quotes as $quote)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
-                                    {{ $quote->name ?? '-' }}
+                                    {{ optional($quote->product)->name ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $quote->contact_info ?? '-' }}
+                                    {{ $quote->phone ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $quote->notes ?? '-' }}
+                                    {{ $quote->email ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $quote->product_id ?? '-' }}
+                                    {{ $quote->address ?? '-' }}
+                                </td>
+                                <td class="px-4 py-3 text-left">
+                                    {{ $quote->specification ?? '-' }}
+                                </td>
+                                <td class="px-4 py-3 text-left">
+                                    {{ $quote->status ?? '-' }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"
@@ -144,7 +156,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5">
+                                <td colspan="7">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -152,7 +164,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="5">
+                                <td colspan="7">
                                     <div class="mt-10 px-4">
                                         {!! $quotes->render() !!}
                                     </div>

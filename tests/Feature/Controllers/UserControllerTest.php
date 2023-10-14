@@ -68,6 +68,7 @@ class UserControllerTest extends TestCase
         unset($data['email_verified_at']);
         unset($data['two_factor_confirmed_at']);
         unset($data['profile_photo_path']);
+        unset($data['is_distributor']);
 
         $this->assertDatabaseHas('users', $data);
 
@@ -116,6 +117,7 @@ class UserControllerTest extends TestCase
         $data = [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique->email,
+            'is_distributor' => $this->faker->boolean,
         ];
 
         $data['password'] = \Str::random('8');
@@ -126,6 +128,7 @@ class UserControllerTest extends TestCase
         unset($data['email_verified_at']);
         unset($data['two_factor_confirmed_at']);
         unset($data['profile_photo_path']);
+        unset($data['is_distributor']);
 
         $data['id'] = $user->id;
 

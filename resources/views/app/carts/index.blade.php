@@ -58,9 +58,6 @@
                                 <th class="px-4 py-3 text-right">
                                     @lang('crud.carts.inputs.quantity')
                                 </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.carts.inputs.specification')
-                                </th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -68,16 +65,13 @@
                             @forelse($carts as $cart)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
-                                    {{ $cart->user_id ?? '-' }}
+                                    {{ optional($cart->user)->name ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $cart->product_id ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-right">
                                     {{ $cart->quantity ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $cart->specification ?? '-' }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"
@@ -144,7 +138,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5">
+                                <td colspan="4">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -152,7 +146,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="5">
+                                <td colspan="4">
                                     <div class="mt-10 px-4">
                                         {!! $carts->render() !!}
                                     </div>

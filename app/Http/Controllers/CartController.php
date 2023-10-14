@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\CartStoreRequest;
 use App\Http\Requests\CartUpdateRequest;
@@ -35,7 +36,9 @@ class CartController extends Controller
     {
         $this->authorize('create', Cart::class);
 
-        return view('app.carts.create');
+        $users = User::pluck('name', 'id');
+
+        return view('app.carts.create', compact('users'));
     }
 
     /**
@@ -76,7 +79,9 @@ class CartController extends Controller
     {
         $this->authorize('update', $cart);
 
-        return view('app.carts.edit', compact('cart'));
+        $users = User::pluck('name', 'id');
+
+        return view('app.carts.edit', compact('cart', 'users'));
     }
 
     /**

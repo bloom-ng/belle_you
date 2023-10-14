@@ -23,10 +23,10 @@ class CartFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => 2,
             'product_id' => $this->faker->randomNumber,
             'quantity' => $this->faker->randomNumber,
-            'specification' => $this->faker->text,
+            'ip' => $this->faker->ipv4,
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }

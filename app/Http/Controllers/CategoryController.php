@@ -35,7 +35,9 @@ class CategoryController extends Controller
     {
         $this->authorize('create', Category::class);
 
-        return view('app.categories.create');
+        $categories = Category::pluck('name', 'id');
+
+        return view('app.categories.create', compact('categories'));
     }
 
     /**
@@ -76,7 +78,9 @@ class CategoryController extends Controller
     {
         $this->authorize('update', $category);
 
-        return view('app.categories.edit', compact('category'));
+        $categories = Category::pluck('name', 'id');
+
+        return view('app.categories.edit', compact('category', 'categories'));
     }
 
     /**

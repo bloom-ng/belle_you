@@ -4,20 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belle You</title>
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <title>Belle You For You</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.4/dist/full.css" rel="stylesheet" type="text/css" />
-    <link href="/css/app.css" rel="stylesheet">
-    <link rel="stylesheet" href=" {{ asset('css/app.css') }} ">
-    <script src=" {{asset('js/app.js')}} "></script>
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 
-<body>
+<body class="bg-white">
     <!-- Navbar -->
-    <nav class=" p-8 md:px-28 border-b border-black flex
+    <nav class="text-black p-8 md:px-28 border-b border-black flex
      justify-between items-center bg-amber-50 whitespace-nowrap">
         <div class="flex items-center " id="navBar">
             <h1 class="text-xl md:text-2xl font-medium">Belle You For You</h1>
@@ -114,7 +110,7 @@
     <!-- /Hero -->
 
     <!-- Categories -->
-    <section class="md:px-28 p-8">
+    <section class="text-black md:px-28 p-8">
         <div class="flex md:justify-between items-center">
             <div class="md:space-x-4 space-y-2 space-x-2 flex-wrap">
                 <button
@@ -146,8 +142,8 @@
     <!-- /Categories -->
 
     <!-- Products -->
-    <section class="md:px-28 p-8">
-        <h1 class="text-2xl font-medium">Asoebi For You</h1>
+    <section class="text-black md:px-28 p-8">
+        <h1 class="text-2xl font-medium text-black">Asoebi For You</h1>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-10">
             <!-- Items -->
@@ -159,7 +155,7 @@
                     <h1 class="text-lg">First Asoebi Product Name</h1>
                     <p class="text-2xl text-[#382B00] font-medium">&#8358;24,000</p>
                     <button
-                        class="bg-white  border-2 border-[#D4AF37] text-[#D4AF37] font-semibold px-4 py-2 md:px-8 md:py-2 rounded-3xl">Buy
+                        class="bg-white border-2 border-[#D4AF37] text-[#D4AF37] font-semibold px-4 py-2 md:px-8 md:py-2 rounded-3xl">Buy
                         Now</button>
 
                 </div>
@@ -173,7 +169,7 @@
                     <h1 class="text-lg">First Asoebi Product Name</h1>
                     <p class="text-2xl text-[#382B00] font-medium">&#8358;24,000</p>
                     <button
-                        class="bg-[#D4AF37]  border-2 border-[#D4AF37] text-white font-semibold px-4 py-2 md:px-8 md:py-2 rounded-3xl">Buy
+                        class="bg-white hover:text-white hover:bg-[#D4AF37] border-2 border-[#D4AF37] text-[#D4AF37] font-semibold px-4 py-2 md:px-8 md:py-2 rounded-3xl">Buy
                         Now</button>
 
                 </div>
@@ -230,7 +226,7 @@
                     <h1 class="text-lg">First Asoebi Product Name</h1>
                     <p class="text-2xl text-[#382B00] font-medium">&#8358;24,000</p>
                     <button
-                        class="bg-[#D4AF37]  border-2 border-[#D4AF37] text-white font-semibold px-4 py-2 md:px-8 md:py-2 rounded-3xl">Buy
+                        class="bg-white hover:text-white hover:bg-[#D4AF37] border-2 border-[#D4AF37] text-white font-semibold px-4 py-2 md:px-8 md:py-2 rounded-3xl">Buy
                         Now</button>
 
                 </div>
@@ -287,7 +283,7 @@
                     <h1 class="text-lg">First Asoebi Product Name</h1>
                     <p class="text-2xl text-[#382B00] font-medium">&#8358;24,000</p>
                     <button
-                        class="bg-[#D4AF37]  border-2 border-[#D4AF37] text-white font-semibold px-4 py-2 md:px-8 md:py-2 rounded-3xl">Buy
+                        class="bg-white hover:text-white hover:bg-[#D4AF37] border-2 border-[#D4AF37] text-white font-semibold px-4 py-2 md:px-8 md:py-2 rounded-3xl">Buy
                         Now</button>
 
                 </div>
@@ -335,7 +331,7 @@
             <div class="flex justify-center items-center py-2">
                 <input class="p-3 rounded-lg w-62 md:w-80 outline-none " type="email" name="email" id=""
                     placeholder="Enter your email">
-                <input class="ml-4 bg-[#D4AF37] px-7 py-3 rounded-lg text-white font-medium" type="submit"
+                <input class="ml-4 bg-white hover:text-white hover:bg-[#D4AF37]px-7 py-3 rounded-lg text-white font-medium" type="submit"
                     value="Subscribe">
             </div>
         </div>
@@ -343,7 +339,7 @@
     <!-- /Newsletter -->
 
     <!-- Footer -->
-    <footer class="md:px-28 p-8 bg-[#FFFBEF] border-t-2 border-amber-800 mt-10">
+    <footer class="text-black md:px-28 p-8 bg-[#FFFBEF] border-t-2 border-amber-800 mt-10">
         <div class="flex justify-between ">
             <div>
                 <h1 class="font-medium text-2xl ">Belle For You</h1>

@@ -125,6 +125,8 @@ class InvoiceControllerTest extends TestCase
     {
         $invoice = Invoice::factory()->create();
 
+        $user = User::factory()->create();
+
         $data = [
             'user_id' => $this->faker->randomNumber,
             'invoice_ref' => $this->faker->text(255),
@@ -133,6 +135,7 @@ class InvoiceControllerTest extends TestCase
             'user_name' => $this->faker->text(255),
             'phone' => $this->faker->phoneNumber,
             'total' => $this->faker->randomFloat(2, 0, 9999),
+            'user_id' => $user->id,
         ];
 
         $data['line_items'] = json_encode($data['line_items']);

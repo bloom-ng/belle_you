@@ -26,4 +26,9 @@ class Invoice extends Model
     protected $casts = [
         'line_items' => 'array',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

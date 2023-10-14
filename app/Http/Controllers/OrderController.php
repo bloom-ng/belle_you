@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Requests\OrderStoreRequest;
@@ -35,7 +36,9 @@ class OrderController extends Controller
     {
         $this->authorize('create', Order::class);
 
-        return view('app.orders.create');
+        $users = User::pluck('name', 'id');
+
+        return view('app.orders.create', compact('users'));
     }
 
     /**
@@ -76,7 +79,9 @@ class OrderController extends Controller
     {
         $this->authorize('update', $order);
 
-        return view('app.orders.edit', compact('order'));
+        $users = User::pluck('name', 'id');
+
+        return view('app.orders.edit', compact('order', 'users'));
     }
 
     /**

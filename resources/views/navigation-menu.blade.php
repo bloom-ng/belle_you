@@ -93,6 +93,56 @@
                         Users
                         </x-dropdown-link>
                         @endcan
+                        @can('view-any', App\Models\BlogCategory::class)
+                        <x-dropdown-link href="{{ route('blog-categories.index') }}">
+                        Blog Categories
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\BlogPost::class)
+                        <x-dropdown-link href="{{ route('blog-posts.index') }}">
+                        Blog Posts
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\BlogPostTag::class)
+                        <x-dropdown-link href="{{ route('blog-post-tags.index') }}">
+                        Blog Post Tags
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\BlogTag::class)
+                        <x-dropdown-link href="{{ route('blog-tags.index') }}">
+                        Blog Tags
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\Contact::class)
+                        <x-dropdown-link href="{{ route('contacts.index') }}">
+                        Contacts
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\NetworkTeam::class)
+                        <x-dropdown-link href="{{ route('network-teams.index') }}">
+                        Network Teams
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\ProductImage::class)
+                        <x-dropdown-link href="{{ route('product-images.index') }}">
+                        Product Images
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\Quote::class)
+                        <x-dropdown-link href="{{ route('quotes.index') }}">
+                        Quotes
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\Transaction::class)
+                        <x-dropdown-link href="{{ route('transactions.index') }}">
+                        Transactions
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\UserStoreCredit::class)
+                        <x-dropdown-link href="{{ route('user-store-credits.index') }}">
+                        User Store Credits
+                        </x-dropdown-link>
+                        @endcan
                 </x-nav-dropdown>
 
                     @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) || 
@@ -308,6 +358,56 @@
                 @can('view-any', App\Models\User::class)
                 <x-jet-responsive-nav-link href="{{ route('users.index') }}">
                 Users
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\BlogCategory::class)
+                <x-jet-responsive-nav-link href="{{ route('blog-categories.index') }}">
+                Blog Categories
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\BlogPost::class)
+                <x-jet-responsive-nav-link href="{{ route('blog-posts.index') }}">
+                Blog Posts
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\BlogPostTag::class)
+                <x-jet-responsive-nav-link href="{{ route('blog-post-tags.index') }}">
+                Blog Post Tags
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\BlogTag::class)
+                <x-jet-responsive-nav-link href="{{ route('blog-tags.index') }}">
+                Blog Tags
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\Contact::class)
+                <x-jet-responsive-nav-link href="{{ route('contacts.index') }}">
+                Contacts
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\NetworkTeam::class)
+                <x-jet-responsive-nav-link href="{{ route('network-teams.index') }}">
+                Network Teams
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\ProductImage::class)
+                <x-jet-responsive-nav-link href="{{ route('product-images.index') }}">
+                Product Images
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\Quote::class)
+                <x-jet-responsive-nav-link href="{{ route('quotes.index') }}">
+                Quotes
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\Transaction::class)
+                <x-jet-responsive-nav-link href="{{ route('transactions.index') }}">
+                Transactions
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\UserStoreCredit::class)
+                <x-jet-responsive-nav-link href="{{ route('user-store-credits.index') }}">
+                User Store Credits
                 </x-jet-responsive-nav-link>
                 @endcan
 

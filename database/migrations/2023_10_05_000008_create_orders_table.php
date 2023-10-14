@@ -15,9 +15,9 @@ return new class extends Migration {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('user_id');
+            $table->foreignId('transaction_id');
             $table->string('name');
             $table->string('payment_ref');
-            $table->string('transaction_id');
             $table->string('state');
             $table->string('country');
             $table->decimal('discount');
@@ -27,8 +27,8 @@ return new class extends Migration {
                 'failed',
             ]);
             $table->longText('payment_response');
-            $table->tinyInteger('order_status');
             $table->decimal('shipping_total');
+            $table->enum('status', ['completed', 'pending', 'failed']);
 
             $table->timestamps();
         });

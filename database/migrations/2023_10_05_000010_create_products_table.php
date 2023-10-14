@@ -16,9 +16,7 @@ return new class extends Migration {
             $table->bigIncrements('id');
             $table->string('name');
             $table->integer('quantity');
-            $table->string('image');
-            $table->string('image_2')->nullable();
-            $table->decimal('price');
+            $table->decimal('price', 10, 2);
             $table->longText('description');
             $table->enum('type', ['ready_made', 'custom']);
             $table->longText('short_description')->nullable();

@@ -55,12 +55,6 @@
                                 <th class="px-4 py-3 text-right">
                                     @lang('crud.products.inputs.quantity')
                                 </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.products.inputs.image')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.products.inputs.image_2')
-                                </th>
                                 <th class="px-4 py-3 text-right">
                                     @lang('crud.products.inputs.price')
                                 </th>
@@ -99,14 +93,6 @@
                                 </td>
                                 <td class="px-4 py-3 text-right">
                                     {{ $product->quantity ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    <x-partials.thumbnail
-                                        src="{{ $product->image ? \Storage::url($product->image) : '' }}"
-                                    />
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $product->image_2 ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-right">
                                     {{ $product->price ?? '-' }}
@@ -200,7 +186,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="14">
+                                <td colspan="12">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -208,7 +194,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="14">
+                                <td colspan="12">
                                     <div class="mt-10 px-4">
                                         {!! $products->render() !!}
                                     </div>

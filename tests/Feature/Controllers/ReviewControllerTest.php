@@ -5,6 +5,8 @@ namespace Tests\Feature\Controllers;
 use App\Models\User;
 use App\Models\Review;
 
+use App\Models\Product;
+
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -108,6 +110,9 @@ class ReviewControllerTest extends TestCase
     {
         $review = Review::factory()->create();
 
+        $user = User::factory()->create();
+        $product = Product::factory()->create();
+
         $data = [
             'user_id' => $this->faker->randomNumber,
             'product_id' => $this->faker->randomNumber,
@@ -115,6 +120,8 @@ class ReviewControllerTest extends TestCase
             'title' => $this->faker->sentence(10),
             'message' => $this->faker->sentence(20),
             'visibility' => $this->faker->boolean,
+            'user_id' => $user->id,
+            'product_id' => $product->id,
         ];
 
         $response = $this->put(route('reviews.update', $review), $data);

@@ -23,14 +23,13 @@ class InvoiceFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => 2,
-            // 'name' => $this->faker->name(),
             'invoice_ref' => $this->faker->text(255),
             'line_items' => [],
             'status' => $this->faker->word,
             'user_name' => $this->faker->text(255),
             'phone' => $this->faker->phoneNumber,
             'total' => $this->faker->randomFloat(2, 0, 9999),
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }

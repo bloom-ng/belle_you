@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->foreignId('product_id');
             $table->integer('quantity');
             $table->decimal('price');
+            $table->enum('status', ['delivered', 'returned', 'lost']);
 
             $table->timestamps();
         });

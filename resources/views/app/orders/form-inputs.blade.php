@@ -2,14 +2,13 @@
 
 <div class="flex flex-wrap">
     <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="user_id"
-            label="User Id"
-            :value="old('user_id', ($editing ? $order->user_id : ''))"
-            maxlength="255"
-            placeholder="User Id"
-            required
-        ></x-inputs.text>
+        <x-inputs.select name="user_id" label="User" required>
+            @php $selected = old('user_id', ($editing ? $order->user_id : '')) @endphp
+            <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the User</option>
+            @foreach($users as $value => $label)
+            <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+            @endforeach
+        </x-inputs.select>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
@@ -30,17 +29,6 @@
             :value="old('payment_ref', ($editing ? $order->payment_ref : ''))"
             maxlength="255"
             placeholder="Payment Ref"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="transaction_id"
-            label="Transaction Id"
-            :value="old('transaction_id', ($editing ? $order->transaction_id : ''))"
-            maxlength="255"
-            placeholder="Transaction Id"
             required
         ></x-inputs.text>
     </x-inputs.group>
@@ -97,17 +85,6 @@
             >{{ old('payment_response', ($editing ? $order->payment_response :
             '')) }}</x-inputs.textarea
         >
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.text
-            name="order_status"
-            label="Order Status"
-            :value="old('order_status', ($editing ? $order->order_status : ''))"
-            maxlength="255"
-            placeholder="Order Status"
-            required
-        ></x-inputs.text>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">

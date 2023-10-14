@@ -23,9 +23,12 @@ class QuoteFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'contact_info' => $this->faker->text(255),
-            'notes' => $this->faker->text,
+            'phone' => $this->faker->phoneNumber,
+            'email' => $this->faker->email,
+            'address' => $this->faker->address,
+            'specification' => $this->faker->text,
+            'status' => 'pending',
+            'product_id' => \App\Models\Product::factory(),
         ];
     }
 }

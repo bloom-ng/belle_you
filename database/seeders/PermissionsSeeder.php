@@ -27,6 +27,30 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update banners']);
         Permission::create(['name' => 'delete banners']);
 
+        Permission::create(['name' => 'list blogcategories']);
+        Permission::create(['name' => 'view blogcategories']);
+        Permission::create(['name' => 'create blogcategories']);
+        Permission::create(['name' => 'update blogcategories']);
+        Permission::create(['name' => 'delete blogcategories']);
+
+        Permission::create(['name' => 'list blogposts']);
+        Permission::create(['name' => 'view blogposts']);
+        Permission::create(['name' => 'create blogposts']);
+        Permission::create(['name' => 'update blogposts']);
+        Permission::create(['name' => 'delete blogposts']);
+
+        Permission::create(['name' => 'list blogposttags']);
+        Permission::create(['name' => 'view blogposttags']);
+        Permission::create(['name' => 'create blogposttags']);
+        Permission::create(['name' => 'update blogposttags']);
+        Permission::create(['name' => 'delete blogposttags']);
+
+        Permission::create(['name' => 'list blogtags']);
+        Permission::create(['name' => 'view blogtags']);
+        Permission::create(['name' => 'create blogtags']);
+        Permission::create(['name' => 'update blogtags']);
+        Permission::create(['name' => 'delete blogtags']);
+
         Permission::create(['name' => 'list carousels']);
         Permission::create(['name' => 'view carousels']);
         Permission::create(['name' => 'create carousels']);
@@ -45,6 +69,12 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update categories']);
         Permission::create(['name' => 'delete categories']);
 
+        Permission::create(['name' => 'list contacts']);
+        Permission::create(['name' => 'view contacts']);
+        Permission::create(['name' => 'create contacts']);
+        Permission::create(['name' => 'update contacts']);
+        Permission::create(['name' => 'delete contacts']);
+
         Permission::create(['name' => 'list contents']);
         Permission::create(['name' => 'view contents']);
         Permission::create(['name' => 'create contents']);
@@ -56,6 +86,12 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'create invoices']);
         Permission::create(['name' => 'update invoices']);
         Permission::create(['name' => 'delete invoices']);
+
+        Permission::create(['name' => 'list networkteams']);
+        Permission::create(['name' => 'view networkteams']);
+        Permission::create(['name' => 'create networkteams']);
+        Permission::create(['name' => 'update networkteams']);
+        Permission::create(['name' => 'delete networkteams']);
 
         Permission::create(['name' => 'list orders']);
         Permission::create(['name' => 'view orders']);
@@ -81,6 +117,18 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update productcategories']);
         Permission::create(['name' => 'delete productcategories']);
 
+        Permission::create(['name' => 'list productimages']);
+        Permission::create(['name' => 'view productimages']);
+        Permission::create(['name' => 'create productimages']);
+        Permission::create(['name' => 'update productimages']);
+        Permission::create(['name' => 'delete productimages']);
+
+        Permission::create(['name' => 'list quotes']);
+        Permission::create(['name' => 'view quotes']);
+        Permission::create(['name' => 'create quotes']);
+        Permission::create(['name' => 'update quotes']);
+        Permission::create(['name' => 'delete quotes']);
+
         Permission::create(['name' => 'list reviews']);
         Permission::create(['name' => 'view reviews']);
         Permission::create(['name' => 'create reviews']);
@@ -93,11 +141,23 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update storesettings']);
         Permission::create(['name' => 'delete storesettings']);
 
+        Permission::create(['name' => 'list transactions']);
+        Permission::create(['name' => 'view transactions']);
+        Permission::create(['name' => 'create transactions']);
+        Permission::create(['name' => 'update transactions']);
+        Permission::create(['name' => 'delete transactions']);
+
         Permission::create(['name' => 'list uisettings']);
         Permission::create(['name' => 'view uisettings']);
         Permission::create(['name' => 'create uisettings']);
         Permission::create(['name' => 'update uisettings']);
         Permission::create(['name' => 'delete uisettings']);
+
+        Permission::create(['name' => 'list userstorecredits']);
+        Permission::create(['name' => 'view userstorecredits']);
+        Permission::create(['name' => 'create userstorecredits']);
+        Permission::create(['name' => 'update userstorecredits']);
+        Permission::create(['name' => 'delete userstorecredits']);
 
         // Create user role and assign existing permissions
         $currentPermissions = Permission::all();
