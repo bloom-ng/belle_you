@@ -145,7 +145,9 @@
     <section class="text-black md:px-28 p-8">
         <h1 class="text-2xl font-medium text-black">Asoebi For You</h1>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-10">
+        <x-product-collection limit="4" />
+
+        {{-- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-10">
             <!-- Items -->
             <div class="relative">
                 <span class="absolute top-0 right-0 h-16 w-16 flex p-4 justify-end "><i class="bi bi-heart"></i></span>
@@ -315,7 +317,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> --}}
 
 
 
