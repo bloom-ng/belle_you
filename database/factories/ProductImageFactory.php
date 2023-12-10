@@ -23,6 +23,7 @@ class ProductImageFactory extends Factory
     public function definition()
     {
         return [
+            'image' => $this->faker->image( width: 500, height: 550, category: "cloth", randomize: true ),
             'status' => 'visible',
             'product_id' => \App\Models\Product::factory(),
         ];

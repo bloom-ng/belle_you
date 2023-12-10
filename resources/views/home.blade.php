@@ -1,50 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belle You For You</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.4/dist/full.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-</head>
-
-<body class="bg-white">
-    <!-- Navbar -->
-    <nav class="text-black p-8 md:px-28 border-b border-black flex
-     justify-between items-center bg-amber-50 whitespace-nowrap">
-        <div class="flex items-center " id="navBar">
-            <h1 class="text-xl md:text-2xl font-medium">Belle You For You</h1>
-            <ul class="hidden md:flex jusitfy-between items-center space-x-4 ml-20 font-medium">
-                <li><a href="#">Category <i class="bi bi-chevron-compact-down"></i></a></li>
-                <li><a href="#">Deals</a></li>
-                <li><a href="#">Whats New</a></li>
-            </ul>
-        </div>
-        <!-- <div class="flex items-center hidden bg-white" id="navBar"> 
-        <h1 class="text-xl md:text-2xl font-medium">Belle For You</h1>       
-        <ul class="hidden md:flex jusitfy-between items-center space-x-4 ml-20 font-medium">
-            <li><a href="#">Category <i class="bi bi-chevron-compact-down"></i></a></li>
-            <li><a href="#">Deals</a></li>
-            <li><a href="#">Whats New</a></li>
-        </ul>         
-    </div> -->
-        <div class="flex items-center">
-            <ul class="flex items-center space-x-2 md:space-x-8 md:ml-10 font-medium text-lg">
-                <li><a href="#">Account <i class="bi bi-person"></i></a></li>
-                <li><a href="#">Cart <i class="bi bi-cart"></i></a></li>
-            </ul>
-        </div>
-        <div class="flex items-center md:hidden">
-            <button onclick="navtoggle()"><i class="bi bi-list text-3xl"></i></button>
-
-        </div>
-
-
-    </nav>
-    <!-- /Navbar -->
+<x-header />
 
     <!-- Hero -->
     <section class="md:px-28 p-8 relative">
@@ -92,17 +46,17 @@
             </div>
         </div>
         <!-- <div class="absolute md:top-28 py-3 flex flex-col px-10">
-            
+
             <h1 class="md:text-5xl text-lg text-center md:text-center lg:text-start  font-bold text-white">Grab Upto 50% Off <br>On Our Asoebi</h1>
                 <div class="py-2 flex justify-center text-sm md:text-lg lg:justify-start items-center lg:text-start space-x-4">
             <button class="bg-white font-semibold px-4 py-2 md:px-6 md:py-3 rounded-3xl text-[#D4AF37]">Buy Now</button>
             <button class="text-white underline underline-offset-4 font-medium">View all Category</button>
-           
+
         </div>
         </div>
-       
+
         <div>
-        <img class="rounded-3xl h-fit w-fit md:h-96 w-full object-cover" src="../images/hero.png" alt="">  
+        <img class="rounded-3xl h-fit w-fit md:h-96 w-full object-cover" src="../images/hero.png" alt="">
      </div>  -->
 
     </section>
@@ -143,9 +97,7 @@
 
     <!-- Products -->
     <section class="text-black md:px-28 p-8">
-        <h1 class="text-2xl font-medium text-black">Asoebi For You</h1>
-
-        <x-product-collection limit="4" />
+        <x-product-collection limit="12" />
 
         {{-- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-10">
             <!-- Items -->
@@ -325,51 +277,8 @@
     <!-- /Products -->
 
     <!-- Newsletter -->
-    <section class="md:px-28 p-8 ">
-        <div class="bg-[#FFF5D3] border-2 border-amber-800 rounded-3xl h-72 flex flex-col justify-center items-center">
-            <h1 class="font-bold text-[#382B00] text-center text-3xl py-2">Sign Up for our Newsletter</h1>
-            <p class="text-amber-900 text-[#382B00] text-xl py-2 text-center ">Be the first about release and industry
-                news and insights.</p>
-            <div class="flex justify-center items-center py-2">
-                <input class="p-3 rounded-lg w-62 md:w-80 outline-none " type="email" name="email" id=""
-                    placeholder="Enter your email">
-                <input class="ml-4 bg-white hover:text-white hover:bg-[#D4AF37]px-7 py-3 rounded-lg text-white font-medium" type="submit"
-                    value="Subscribe">
-            </div>
-        </div>
-    </section>
+    <x-newsletter />
     <!-- /Newsletter -->
 
     <!-- Footer -->
-    <footer class="text-black md:px-28 p-8 bg-[#FFFBEF] border-t-2 border-amber-800 mt-10">
-        <div class="flex justify-between ">
-            <div>
-                <h1 class="font-medium text-2xl ">Belle For You</h1>
-            </div>
-            <div class="flex items-center">
-                <ul
-                    class="flex flex-col md:flex-row items-start md:items-center md:space-x-2 md:space-x-12 md:ml-20 font-medium">
-                    <li><a href="#">Category</a></li>
-                    <li><a href="#">Deals</a></li>
-                    <li><a href="#">Whats New</a></li>
-                </ul>
-            </div>
-            <div class="flex items-center">
-                <ul class="flex items-center space-x-2 md:space-x-4 md:ml-20 font-medium">
-                    <a href="#"><img src="../images/facebook.svg" alt="">
-                    </a>
-                    <a href="#"><img src="../images/wi.png" alt="">
-                    </a>
-                    <a href="#"><img src="../images/linkedin.png" alt="">
-                    </a>
-                    <a href="#"><img src="../images/insagram.png" alt="">
-                    </a>
-
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-</body>
-
-</html>
+<x-footer />

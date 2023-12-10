@@ -112,4 +112,10 @@ class ProductController extends Controller
             ->route('products.index')
             ->withSuccess(__('crud.common.removed'));
     }
+
+    public function details(Request $request, $id){
+        $prouctDetail = Product::where("id", $id)->first();
+
+        return view('product-detail')->with('product', $prouctDetail);
+    }
 }

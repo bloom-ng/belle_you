@@ -45,6 +45,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/product/{id}', [ProductController::class, "details"])->name('product.show');
+
 Route::middleware(['auth:sanctum', 'verified'])
     ->get('/dashboard', function () {
         return view('dashboard');

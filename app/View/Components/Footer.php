@@ -4,20 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class ProductGrid extends Component
+class Footer extends Component
 {
-    public $title;
-    public $products;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $products)
+    public function __construct()
     {
         //
-        $this->title = $title;
-        $this->products = $products;
     }
 
     /**
@@ -27,6 +23,6 @@ class ProductGrid extends Component
      */
     public function render()
     {
-        return view('components.product-grid');
+        return view('components.footer');
     }
 }
